@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/02/hexo学习笔记/index.html">
 <meta property="og:site_name" content="emila">
 <meta property="og:description" content="Hexo简介Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。Hexo的官方网站 http://hexo.io 就是托管于github的pages服务上">
-<meta property="og:updated_time" content="2016-09-02T14:15:54.765Z">
+<meta property="og:updated_time" content="2016-09-02T14:59:24.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo学习笔记">
 <meta name="twitter:description" content="Hexo简介Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。Hexo的官方网站 http://hexo.io 就是托管于github的pages服务上">
@@ -252,6 +252,20 @@ hexo new post &lt;title&gt;
 <pre><code>hexo clean #清除缓存 网页正常情况下可以忽略此条命令
 hexo g #生成静态网页
 hexo d #开始部署
+</code></pre><p><code>hexo g</code> 在本地目录下，会生成一个public的目录，里面包括了所有静态化的文件。</p>
+<p>生成静态文件之后，如果要发布到github，还需要配置 deploy 指令。在全局的配置文件中找到 deploy ： </p>
+<pre><code># Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+type: git
+repo: https://github.com/dwqs/dwqs.github.io.git
+branch: master   
+</code></pre><p>这需要安装 hexo-deployer-git ：</p>
+<pre><code>npm install hexo-deployer-git --save-dev
+</code></pre><p>最后利用hexo指令发布到github：</p>
+<pre><code>hexo d
+//same as
+hexo deploy
 </code></pre><h2 id="Hexo常用插件安装与配置"><a href="#Hexo常用插件安装与配置" class="headerlink" title="Hexo常用插件安装与配置"></a>Hexo常用插件安装与配置</h2><p>安装首页文章数量 存档 分类 的插件</p>
 <p>安装本地服务器代理插件</p>
 <p>安装发布器插件</p>
@@ -331,7 +345,7 @@ fb_app_id:
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/09/02/hexo学习笔记/" data-id="cislr2q1m0000xgflukce4hvy" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/02/hexo学习笔记/" data-id="cislw236200013cfli52nld20" class="article-share-link">分享到</a>
       
 
       
