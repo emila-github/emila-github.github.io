@@ -1,0 +1,537 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>SVG - 学习笔记 | emila</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="emila">
+    
+    <meta name="description" content="SVG - 学习笔记SVG ShapesSVG有一些预定义的形状元素，可被开发者使用和操作：
+
+矩形 &amp;lt;rect&amp;gt;
+圆形 &amp;lt;circle&amp;gt;
+椭圆 &amp;lt;ellipse&amp;gt;
+线 &amp;lt;line&amp;gt;
+折线 &amp;lt;polyline&amp;gt;
+多边形 &amp;lt;polygo">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="emila" title="emila"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="emila">emila</a></h1>
+				<h2 class="blog-motto">simple and easy to study</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:emila-github.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/09/02/SVG - 学习笔记/" title="SVG - 学习笔记" itemprop="url">SVG - 学习笔记</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://emila-github.github.io" title="emila">emila</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
+    更新日期:<time datetime="2016-09-05T13:30:52.483Z" itemprop="dateModified">2016-09-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SVG-学习笔记"><span class="toc-number">1.</span> <span class="toc-text">SVG - 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SVG-Shapes"><span class="toc-number">1.1.</span> <span class="toc-text">SVG Shapes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圆形-lt-circle-gt"><span class="toc-number">1.2.</span> <span class="toc-text">圆形 <circle></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形-lt-rect-gt"><span class="toc-number">1.3.</span> <span class="toc-text">矩形 - <rect></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#椭圆-lt-ellipse-gt"><span class="toc-number">1.4.</span> <span class="toc-text">椭圆 - <ellipse></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直线-lt-line-gt"><span class="toc-number">1.5.</span> <span class="toc-text">直线 - <line></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多边形-lt-polygon-gt"><span class="toc-number">1.6.</span> <span class="toc-text">多边形 - <polygon></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#曲线-lt-polyline-gt"><span class="toc-number">1.7.</span> <span class="toc-text">曲线 - <polyline></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径-lt-path-gt"><span class="toc-number">1.8.</span> <span class="toc-text">路径 - <path></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SVG路径中的A指令（画弧线）"><span class="toc-number">1.8.1.</span> <span class="toc-text">SVG路径中的A指令（画弧线）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本-lt-text-gt"><span class="toc-number">1.9.</span> <span class="toc-text">文本 - <text></span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="SVG-学习笔记"><a href="#SVG-学习笔记" class="headerlink" title="SVG - 学习笔记"></a>SVG - 学习笔记</h1><h2 id="SVG-Shapes"><a href="#SVG-Shapes" class="headerlink" title="SVG Shapes"></a>SVG Shapes</h2><p>SVG有一些预定义的形状元素，可被开发者使用和操作：</p>
+<ul>
+<li>矩形 <code>&lt;rect&gt;</code></li>
+<li>圆形 <code>&lt;circle&gt;</code></li>
+<li>椭圆 <code>&lt;ellipse&gt;</code></li>
+<li>线 <code>&lt;line&gt;</code></li>
+<li>折线 <code>&lt;polyline&gt;</code></li>
+<li>多边形 <code>&lt;polygon&gt;</code></li>
+<li>路径 <code>&lt;path&gt;</code></li>
+</ul>
+<h2 id="圆形-lt-circle-gt"><a href="#圆形-lt-circle-gt" class="headerlink" title="圆形 &lt;circle&gt;"></a>圆形 <code>&lt;circle&gt;</code></h2><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;circle cx=&quot;100&quot; cy=&quot;50&quot; r=&quot;40&quot; stroke=&quot;black&quot;
+  stroke-width=&quot;2&quot; fill=&quot;red&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><p><strong>代码解析:</strong></p>
+<p>SVG 代码以 <code>&lt;svg&gt;</code>元素开始，包括开启标签 <svg> 和关闭标签 </svg> 。这是根元素。<br>width 和 height 属性可设置此 SVG 文档的宽度和高度。<br>version 属性可定义所使用的 SVG 版本，xmlns 属性可定义 SVG 命名空间。</p>
+<ul>
+<li>SVG 的 <code>&lt;circle&gt;</code> 用来<strong>创建一个圆</strong>。</li>
+<li><code>cx</code> 和 <code>cy</code> 属性定义<strong>圆中心的 x 和 y 坐标</strong>。如果忽略这两个属性，那么圆点会被设置为 <strong>(0, 0)</strong>。</li>
+<li><code>r</code> 属性定义圆的半径。</li>
+<li><code>stroke</code> 和 <code>stroke-width</code> 属性控制如何显示形状的轮廓。我们把圆的轮廓设置为<strong>黑边框</strong>， <strong>2px 宽</strong>。</li>
+<li><code>fill</code> 属性设置<strong>形状内的颜色</strong>。我们把填充颜色设置为红色。</li>
+</ul>
+<h2 id="矩形-lt-rect-gt"><a href="#矩形-lt-rect-gt" class="headerlink" title="矩形 - &lt;rect&gt;"></a>矩形 - <code>&lt;rect&gt;</code></h2><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;rect width=&quot;300&quot; height=&quot;100&quot;
+  style=&quot;fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><p><strong>代码解析:</strong></p>
+<ul>
+<li>rect 元素的 width 和 height 属性可定义矩形的高度和宽度</li>
+<li>style 属性用来定义 CSS 属性</li>
+<li>CSS 的 fill 属性定义矩形的填充颜色（rgb 值、颜色名或者十六进制值）</li>
+<li>CSS 的 stroke-width 属性定义矩形边框的宽度</li>
+<li><p>CSS 的 stroke 属性定义矩形边框的颜色</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;rect x=&quot;50&quot; y=&quot;20&quot; width=&quot;150&quot; height=&quot;150&quot;
+  style=&quot;fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;
+  stroke-opacity:0.9&quot;/&gt;
+&lt;/svg&gt;
+</code></pre></li>
+</ul>
+<p><strong>代码解析:</strong></p>
+<ul>
+<li>x 属性定义矩形的左侧位置（例如，x=”0” 定义矩形到浏览器窗口左侧的距离是 0px）</li>
+<li>y 属性定义矩形的顶端位置（例如，y=”0” 定义矩形到浏览器窗口顶端的距离是 0px）</li>
+<li>CSS 的 <code>fill-opacity</code> 属性定义填充颜色透明度（合法的范围是：0 - 1）</li>
+<li>CSS 的 <code>stroke-opacity</code> 属性定义笔触颜色的透明度（合法的范围是：0 - 1）</li>
+</ul>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;rect x=&quot;50&quot; y=&quot;20&quot; rx=&quot;20&quot; ry=&quot;20&quot; width=&quot;150&quot; height=&quot;150&quot;
+  style=&quot;fill:red;stroke:black;stroke-width:5;opacity:0.5&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><p><strong>代码解析:</strong></p>
+<ul>
+<li><p>CSS 的 <code>opacity</code> 属性定义整个元素的<strong>不透明度</strong>（合法的范围是：0 - 1）</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;rect x=&quot;50&quot; y=&quot;20&quot; rx=&quot;20&quot; ry=&quot;20&quot; width=&quot;150&quot; height=&quot;150&quot;
+  style=&quot;fill:red;stroke:black;stroke-width:5;opacity:0.5&quot;/&gt;
+&lt;/svg&gt;
+</code></pre></li>
+</ul>
+<p><strong>代码解析:</strong></p>
+<ul>
+<li><code>rx</code> 和 <code>ry</code> 属性可使<strong>矩形产生圆角</strong>。</li>
+</ul>
+<h2 id="椭圆-lt-ellipse-gt"><a href="#椭圆-lt-ellipse-gt" class="headerlink" title="椭圆 - &lt;ellipse&gt;"></a>椭圆 - <code>&lt;ellipse&gt;</code></h2><p>椭圆与圆很相似。不同之处在于椭圆有不同的x和y半径，而圆的x和y半径是相同的：</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;ellipse cx=&quot;300&quot; cy=&quot;80&quot; rx=&quot;100&quot; ry=&quot;50&quot;
+  style=&quot;fill:yellow;stroke:purple;stroke-width:2&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><p><strong>代码解析：</strong></p>
+<ul>
+<li><code>CX</code>属性定义的椭圆中心的x坐标</li>
+<li><code>CY</code>属性定义的椭圆中心的y坐标</li>
+<li><code>RX</code>属性定义的水平半径</li>
+<li><code>RY</code>属性定义的垂直半径</li>
+</ul>
+<h2 id="直线-lt-line-gt"><a href="#直线-lt-line-gt" class="headerlink" title="直线 - &lt;line&gt;"></a>直线 - <code>&lt;line&gt;</code></h2><p><code>&lt;line&gt;</code> 元素是用来创建一个直线：</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;line x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;200&quot; y2=&quot;200&quot;
+  style=&quot;stroke:rgb(255,0,0);stroke-width:2&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><p><strong>代码解析：</strong></p>
+<ul>
+<li>x1 属性在 x 轴定义线条的开始</li>
+<li>y1 属性在 y 轴定义线条的开始</li>
+<li>x2 属性在 x 轴定义线条的结束</li>
+<li>y2 属性在 y 轴定义线条的结束</li>
+</ul>
+<h2 id="多边形-lt-polygon-gt"><a href="#多边形-lt-polygon-gt" class="headerlink" title="多边形 - &lt;polygon&gt;"></a>多边形 - <code>&lt;polygon&gt;</code></h2><p><code>&lt;polygon&gt;</code> 标签用来创建含有不少于三个边的图形。</p>
+<p>多边形是由直线组成，其形状是”封闭”的（所有的线条 连接起来）。</p>
+<blockquote>
+<p>polygon来自希腊。 “Poly” 一位 “many” ， “gon” 意味 “angle”.</p>
+</blockquote>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;polygon points=&quot;200,10 250,190 160,210&quot;
+  style=&quot;fill:lime;stroke:purple;stroke-width:1&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><p><strong>代码解析：</strong></p>
+<ul>
+<li><code>points</code> 属性定义多边形每个角的 x 和 y 坐标</li>
+</ul>
+<p>下面的示例创建一个<strong>四边的多边形</strong>：</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;polygon points=&quot;220,10 300,210 170,250 123,234&quot;
+  style=&quot;fill:lime;stroke:purple;stroke-width:1&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><p>使用 <polygon></polygon> 元素创建<strong>一个星型</strong>:</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;polygon points=&quot;100,10 40,180 190,60 10,60 160,180&quot;
+  style=&quot;fill:lime;stroke:purple;stroke-width:5;fill-rule:nonzero;&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><ul>
+<li><code>fill-rule</code> 属性为 “nonezero|evenodd”:</li>
+</ul>
+<h2 id="曲线-lt-polyline-gt"><a href="#曲线-lt-polyline-gt" class="headerlink" title="曲线 - &lt;polyline&gt;"></a>曲线 - <code>&lt;polyline&gt;</code></h2><p><code>&lt;polyline&gt;</code> 元素是用于创建任何只有直线的形状：</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;polyline points=&quot;20,20 40,25 60,40 80,120 120,140 200,180&quot;
+  style=&quot;fill:none;stroke:black;stroke-width:3&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><h2 id="路径-lt-path-gt"><a href="#路径-lt-path-gt" class="headerlink" title="路径 - &lt;path&gt;"></a>路径 - <code>&lt;path&gt;</code></h2><p><code>&lt;path&gt;</code> 元素用于定义一个路径。</p>
+<p><strong>下面的命令可用于路径数据：</strong></p>
+<ul>
+<li>M = moveto</li>
+<li>L = lineto</li>
+<li>H = horizontal lineto</li>
+<li>V = vertical lineto</li>
+<li>C = curveto</li>
+<li>S = smooth curveto</li>
+<li>Q = quadratic Bézier curve</li>
+<li>T = smooth quadratic Bézier curveto</li>
+<li>A = elliptical Arc</li>
+<li>Z = closepath</li>
+</ul>
+<p>SVG路径中的A指令有7个参数，分别控制曲线的的各个属性。下面解释一下参数的含义：rx, 弧的半长轴长度<br>ry 弧的半短轴长度<br>x-axis-rotation 是此段弧所在的x轴与水平方向的夹角，即x轴的逆时针旋转角度，负数代表顺时针转动的角度。<br>large-arc-flag 为1 表示大角度弧线，0 代表小角度弧线。<br>sweep-flag 为1代表从起点到终点弧线绕中心顺时针方向，0 代表逆时针方向。<br>x,y 是弧终端坐标。</p>
+<blockquote>
+<p>s和s命令是绘制“光滑”三次贝塞尔曲线的命令。一条复杂的曲线由多个曲线弧段所构成，弧段与弧段之间要光滑衔接，各个弧段的控制点必须满足一定条件。首先，这一段曲线弧的起点必须是前一段曲线弧的终点，否则连不上；其次，这一段曲线弧的第一控制点必须与前一段曲线弧的第二控制点呈对称关系，对称中心是这段曲线弧的起点，只有这样才能保证曲线衔接处的光滑。S和s命令的语法是“S X2 y2 destx desty”，省略了光滑曲线弧所隐含的第一个控制点的坐标。命令执行完后，当前点坐标同样停留在最后绘制的一段曲线弧的终点上。</p>
+<p>椭圆弧曲线命令用A或a来表示。其语法比较复杂，是”A rx ry x-axis-rotation large-arc-flag sweep-flag x y”  “x-axis-rotation”是此段弧所在的椭圆的X轴与水平方向的夹角，也即x轴的 旋转角度;large-arc-flag、sweep-flag决定了椭圆弧的绘制方向，值是0或1；(x，y)是椭圆弧<br>终点坐标。至于圆心坐标则是自动计算出来的。</p>
+<p><strong>注意：</strong>以上所有命令均允许小写字母。<strong>大写表示绝对定位(相对M定位)，小写表示相对定位（相对上一个点定位）</strong>。</p>
+</blockquote>
+<p>例子定义了一条路径，它开始于位置150 0，到达位置75 200，然后从那里开始到225 200，最后在150 0关闭路径 ：</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;path d=&quot;M150 0 L75 200 L225 200 Z&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><p>使用<strong>贝兹曲线流畅的曲线模型</strong>，可无限期的缩放。一般情况下，用户选择两个端点和一个或两个控制点。一个一个控制点的贝塞尔曲线被称为二次贝塞尔曲线和两个控制点的那种被称为立方体。</p>
+<p>下面的例子创建了一个二次贝塞尔曲线，<strong>A和C分别是起点和终点，B是控制点</strong>  ：</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;path id=&quot;lineAB&quot; d=&quot;M 100 350 l 150 -300&quot; stroke=&quot;red&quot;
+  stroke-width=&quot;3&quot; fill=&quot;none&quot; /&gt;
+  &lt;path id=&quot;lineBC&quot; d=&quot;M 250 50 l 150 300&quot; stroke=&quot;red&quot;
+  stroke-width=&quot;3&quot; fill=&quot;none&quot; /&gt;
+  &lt;path d=&quot;M 175 200 l 150 0&quot; stroke=&quot;green&quot; stroke-width=&quot;3&quot;
+  fill=&quot;none&quot; /&gt;
+  &lt;path d=&quot;M 100 350 q 150 -300 300 0&quot; stroke=&quot;blue&quot;
+  stroke-width=&quot;5&quot; fill=&quot;none&quot; /&gt;
+  &lt;!-- Mark relevant points --&gt;
+  &lt;g stroke=&quot;black&quot; stroke-width=&quot;3&quot; fill=&quot;black&quot;&gt;
+    &lt;circle id=&quot;pointA&quot; cx=&quot;100&quot; cy=&quot;350&quot; r=&quot;3&quot; /&gt;
+    &lt;circle id=&quot;pointB&quot; cx=&quot;250&quot; cy=&quot;50&quot; r=&quot;3&quot; /&gt;
+    &lt;circle id=&quot;pointC&quot; cx=&quot;400&quot; cy=&quot;350&quot; r=&quot;3&quot; /&gt;
+  &lt;/g&gt;
+  &lt;!-- Label the points --&gt;
+  &lt;g font-size=&quot;30&quot; font=&quot;sans-serif&quot; fill=&quot;black&quot; stroke=&quot;none&quot;
+  text-anchor=&quot;middle&quot;&gt;
+    &lt;text x=&quot;100&quot; y=&quot;350&quot; dx=&quot;-30&quot;&gt;A&lt;/text&gt;
+    &lt;text x=&quot;250&quot; y=&quot;50&quot; dy=&quot;-10&quot;&gt;B&lt;/text&gt;
+    &lt;text x=&quot;400&quot; y=&quot;350&quot; dx=&quot;30&quot;&gt;C&lt;/text&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;
+</code></pre><h3 id="SVG路径中的A指令（画弧线）"><a href="#SVG路径中的A指令（画弧线）" class="headerlink" title="SVG路径中的A指令（画弧线）"></a>SVG路径中的A指令（画弧线）</h3><p><strong>绘制圆弧指令：</strong><code>A rx ry x-axis-rotation large-arc-flag sweep-flag x y</code><br>画笔从当前的点绘制一段圆弧到点(x,y)</p>
+<p>SVG路径中的A指令有7个参数，分别控制曲线的的各个属性。下面解释一下参数的含义：</p>
+<ul>
+<li>rx, 弧的半长轴长度</li>
+<li>ry 弧的半短轴长度</li>
+<li>x-axis-rotation 是此段弧所在的x轴与水平方向的夹角，即x轴的逆时针旋转角度，负数代表顺时针转动的角度。</li>
+<li>large-arc-flag 为1 表示大角度弧线，0 代表小角度弧线。</li>
+<li>sweep-flag 为1代表从起点到终点弧线绕中心顺时针方向，0 代表逆时针方向。</li>
+<li>x,y 是弧终端坐标。</li>
+<li>x-axis-rotation代表旋转的角度</li>
+</ul>
+<p>体会下面例子中圆弧的不同：</p>
+<pre><code>&lt;svg width=&quot;320px&quot; height=&quot;320px&quot;&gt;
+  &lt;path d=&quot;M10 315
+           L 110 215
+           A 30 50 0 0 1 162.55 162.45
+           L 172.55 152.45
+           A 30 50 -45 0 1 215.1 109.9
+           L 315 10&quot; stroke=&quot;black&quot; fill=&quot;green&quot; stroke-width=&quot;2&quot; fill-opacity=&quot;0.5&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><h2 id="文本-lt-text-gt"><a href="#文本-lt-text-gt" class="headerlink" title="文本 - &lt;text&gt;"></a>文本 - <code>&lt;text&gt;</code></h2><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;text x=&quot;0&quot; y=&quot;15&quot; fill=&quot;red&quot; transform=&quot;rotate(30 20,40)&quot;&gt;I love SVG&lt;/text&gt;
+&lt;/svg&gt;
+</code></pre>  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/svg/">svg</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="https://emila-github.github.io/2016/09/02/SVG - 学习笔记/" data-title="SVG - 学习笔记 | emila" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/09/02/DataTables - Jquery DataTables 基本设置/" title="DataTables - Jquery DataTables 基本设置">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  DataTables - Jquery DataTables 基本设置</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/09/02/gem - 源更换/"  title="gem 源更换">
+ <strong>NEXT:</strong><br/> 
+ <span>gem 源更换
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SVG-学习笔记"><span class="toc-number">1.</span> <span class="toc-text">SVG - 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SVG-Shapes"><span class="toc-number">1.1.</span> <span class="toc-text">SVG Shapes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圆形-lt-circle-gt"><span class="toc-number">1.2.</span> <span class="toc-text">圆形 <circle></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形-lt-rect-gt"><span class="toc-number">1.3.</span> <span class="toc-text">矩形 - <rect></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#椭圆-lt-ellipse-gt"><span class="toc-number">1.4.</span> <span class="toc-text">椭圆 - <ellipse></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直线-lt-line-gt"><span class="toc-number">1.5.</span> <span class="toc-text">直线 - <line></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多边形-lt-polygon-gt"><span class="toc-number">1.6.</span> <span class="toc-text">多边形 - <polygon></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#曲线-lt-polyline-gt"><span class="toc-number">1.7.</span> <span class="toc-text">曲线 - <polyline></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径-lt-path-gt"><span class="toc-number">1.8.</span> <span class="toc-text">路径 - <path></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SVG路径中的A指令（画弧线）"><span class="toc-number">1.8.1.</span> <span class="toc-text">SVG路径中的A指令（画弧线）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本-lt-text-gt"><span class="toc-number">1.9.</span> <span class="toc-text">文本 - <text></span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/DataTables/" title="DataTables">DataTables<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
+		
+			<li><a href="/tags/YUIDoc/" title="YUIDoc">YUIDoc<sup>1</sup></a></li>
+		
+			<li><a href="/tags/gem/" title="gem">gem<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>6</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>2</sup></a></li>
+		
+			<li><a href="/tags/html-webpack-plugin/" title="html-webpack-plugin">html-webpack-plugin<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jquery/" title="jquery">jquery<sup>3</sup></a></li>
+		
+			<li><a href="/tags/jsdocs/" title="jsdocs">jsdocs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jshint/" title="jshint">jshint<sup>1</sup></a></li>
+		
+			<li><a href="/tags/node/" title="node">node<sup>1</sup></a></li>
+		
+			<li><a href="/tags/path/" title="path">path<sup>1</sup></a></li>
+		
+			<li><a href="/tags/spmjs/" title="spmjs">spmjs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/sublime/" title="sublime">sublime<sup>1</sup></a></li>
+		
+			<li><a href="/tags/svg/" title="svg">svg<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+		
+			<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+			<li><a href="/tags/virtualbox/" title="virtualbox">virtualbox<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webStorm/" title="webStorm">webStorm<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>2</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="https://emila-github.github.io" target="_blank" title="emila">emila</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

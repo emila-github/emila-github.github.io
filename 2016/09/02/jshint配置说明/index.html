@@ -4,12 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | emila</title>
+    <title>jshint配置说明 | emila</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="emila">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="jshint配置说明{
+    &amp;quot;jquery&amp;quot;: true,//检查预定义的全局变量，防止出现$未定义，该项根据实际代码修改
+    &amp;quot;bitwise&amp;quot;: false,//不检查位运算
+    &amp;quot;browser&amp;quot;: true,//通过浏览">
     
     
     
@@ -65,15 +68,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/05/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2016/09/02/jshint配置说明/" title="jshint配置说明" itemprop="url">jshint配置说明</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://emila-github.github.io" title="emila">emila</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-09-05T06:46:11.043Z" itemprop="datePublished">2016-09-05</time>
-    更新日期:<time datetime="2016-09-05T06:46:11.059Z" itemprop="dateModified">2016-09-05</time>
+    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
+    更新日期:<time datetime="2016-09-05T13:30:52.496Z" itemprop="dateModified">2016-09-05</time>
     
   </p>
 </header>
@@ -82,25 +85,51 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jshint配置说明"><span class="toc-number">1.</span> <span class="toc-text">jshint配置说明</span></a></li></ol>
 		</div>
 		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-  
+		<h1 id="jshint配置说明"><a href="#jshint配置说明" class="headerlink" title="jshint配置说明"></a>jshint配置说明</h1><pre><code>{
+    &quot;jquery&quot;: true,//检查预定义的全局变量，防止出现$未定义，该项根据实际代码修改
+    &quot;bitwise&quot;: false,//不检查位运算
+    &quot;browser&quot;: true,//通过浏览器内置的全局变量检测
+    &quot;devel&quot;:true,//允许对调试用的alert和console.log的调用
+    &quot;camelcase&quot;: false,//不强制验证驼峰式命名
+    &quot;curly&quot;: true,//强制使用花括号
+    &quot;eqeqeq&quot;: false,//不强制使用===比较运算符
+    &quot;es3&quot;:true,//兼容es3规范，针对旧版浏览器编写的代码
+    &quot;esnext&quot;: false, //不使用最新的es6规范
+    &quot;expr&quot;: true,//允许未赋值的函数名表达式，例如console &amp;&amp; console.log(1)
+    &quot;forin&quot;:false,//不强制过滤遍历对象继承的属性    
+    &quot;freeze&quot;:false,//不限制对内置对象的扩展
+    &quot;immed&quot;: true,//禁止未用括号包含立即执行函数
+    &quot;indent&quot;: false,//不强制缩进
+    &quot;latedef&quot;: true,//禁止先调用后定义
+    &quot;maxdepth&quot;:false,//不限制代码块嵌套层数
+    &quot;maxparams&quot;:false,//不限制函数参数个数
+    &quot;newcap&quot;: false,//不对首字母大写的函数强制使用new
+    &quot;noarg&quot;: false,//不禁止对arguments.caller和arguments.callee的调用
+    &quot;noempty&quot;:false,//不禁止空代码块
+    &quot;nonew&quot;:false,//允许直接new实例化而不赋值给变量
+    &quot;plusplus&quot;:false,//允许++和--运算符使用
+    &quot;quotmark&quot;: &quot;single&quot;,//字符串使用单引号
+    &quot;scripturl&quot;: true,//允许javascript伪协议的url
+    &quot;smarttabs&quot;: true,//允许混合tab和空格缩进
+    &quot;strict&quot;: false,//不强制使用es5严格模式
+    &quot;sub&quot;: true,//允许用[]形式访问对象属性
+    &quot;undef&quot;: true,//禁止明确未定义的变量调用，如果你的变量（myvar）是在其他文件中定义的，可以使用/*global myvar */绕过检测
+    &quot;unused&quot;: false,//允许定义没用的变量，在某些函数回调中，经常出现多个参数，但不一定会用
+    &quot;multistr&quot;: false,//禁止多行字符串，改用加号连接
+    &quot;globals&quot;: {
+      &quot;jQuery&quot;: true
+    }
+}
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/hexo/">hexo</a>
+  <span></span> <a href="/tags/jshint/">jshint</a>
   </div>
 
 
@@ -108,7 +137,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="https://emila-github.github.io/2016/09/05/hello-world/" data-title="Hello World | emila" data-tsina="null" class="share clearfix">
+  <div data-url="https://emila-github.github.io/2016/09/02/jshint配置说明/" data-title="jshint配置说明 | emila" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -118,18 +147,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/09/05/Git分支管理策略/" title="Git分支管理策略">
+ <a href="/2016/09/02/YUIDoc - 语法参考/" title="YUIDoc 语法参考">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Git分支管理策略</span>
+  YUIDoc 语法参考</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/09/02/SVG - 参考手册/"  title="SVG - 参考手册">
+<a href="/2016/09/02/sublime - jsdocs使用/"  title="sublime-jsdocs 的使用">
  <strong>NEXT:</strong><br/> 
- <span>SVG - 参考手册
+ <span>sublime-jsdocs 的使用
 </span>
 </a>
 </div>
@@ -142,7 +171,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jshint配置说明"><span class="toc-number">1.</span> <span class="toc-text">jshint配置说明</span></a></li></ol>
   </div>
 
 <div id="asidepart">

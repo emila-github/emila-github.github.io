@@ -1,0 +1,384 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>jQuery.widget - 用法 | emila</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="emila">
+    
+    <meta name="description" content="jQuery.widget - 用法jQuery UI 中包含许多保持状态的小部件，因此比典型的 jQuery 插件稍有不同的使用模式。所有的jQuery UI 小部件使用相同的模式，这是由部件库（Widget Factory）定义的。所以，只要您学会使用其中一个，您就知道如何使用其他的小部件（Wi">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="emila" title="emila"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="emila">emila</a></h1>
+				<h2 class="blog-motto">simple and easy to study</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:emila-github.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/09/02/jQuery.widget - 用法/" title="jQuery.widget - 用法" itemprop="url">jQuery.widget - 用法</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://emila-github.github.io" title="emila">emila</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
+    更新日期:<time datetime="2016-09-05T13:30:52.494Z" itemprop="dateModified">2016-09-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jQuery-widget-用法"><span class="toc-number">1.</span> <span class="toc-text">jQuery.widget - 用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化"><span class="toc-number">1.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选项"><span class="toc-number">1.2.</span> <span class="toc-text">选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-number">1.3.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件"><span class="toc-number">1.4.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例化"><span class="toc-number">1.5.</span> <span class="toc-text">实例化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例销毁"><span class="toc-number">1.6.</span> <span class="toc-text">实例销毁</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="jQuery-widget-用法"><a href="#jQuery-widget-用法" class="headerlink" title="jQuery.widget - 用法"></a>jQuery.widget - 用法</h1><p>jQuery UI 中包含许多保持状态的小部件，因此比典型的 jQuery 插件稍有不同的使用模式。所有的jQuery UI 小部件使用相同的模式，这是由部件库（Widget Factory）定义的。所以，只要您学会使用其中一个，您就知道如何使用其他的小部件（Widget）。</p>
+<p>注释：本章节使用 进度条部件（Progressbar Widget） 演示实例，但是语法适用于每个小部件。</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>为了跟踪小部件的状态，我们必须引入小部件的全生命周期。小部件初始化时生命周期开始。要初始化一个小部件，我们只需要简单地在一个或多个元素上调用插件。</p>
+<pre><code>$( &quot;#elem&quot; ).progressbar();
+</code></pre><p>这将初始化 jQuery 对象中的每个元素。上面实例中元素 id 为 “elem”。</p>
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><p>由于 progressbar() 调用时不带参数，小部件是使用默认选项进行初始化的。我们可以在初始化时传递一组选项来覆盖默认选项：</p>
+<pre><code>$( &quot;#elem&quot; ).progressbar({ value: 20 });
+</code></pre><p>我们可以根据需要传递选项的个数，任何我们未传递的选项都使用它们的默认值。</p>
+<p>您可以传递多个选项参数，这些参数将会被合并为一个对象（类似于 <code>$.extend( true, target, object1, objectN )</code>）。这在为所有实例覆盖一些设置，实例间共享选项时很有用：</p>
+<pre><code>var options = { modal: true, show: &quot;slow&quot; };
+$( &quot;#dialog1&quot; ).dialog( options );
+$( &quot;#dialog2&quot; ).dialog( options, { autoOpen: false });
+</code></pre><p>所有在初始化时传递的选项都是深拷贝的，确保后续在不影响小部件的情况下修改对象。数组是唯一的例外，它们是按原样引用的。这个例外是为了适当地支持数据绑定，其中数据源必须作为引用。</p>
+<p>默认值保存在小部件的属性中，因此我们可以覆盖 jQuery UI 设置的值。例如，在下面的设置后，所有将来的进度条实例将默认为值 80：</p>
+<pre><code>$.ui.progressbar.prototype.options.value = 80;
+</code></pre><p>选项是小部件状态的组成部分，所以我们也可以在初始化后设置选项。我们会在后续看到 option 方法。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>现在小部件已经初始化，我们可以查询它的状态，或者在小部件上执行动作。所有初始化后的动作都是以方法调用方式执行。为了在小部件上调用一个方法，我们向 jQuery 插件传递方法的名称。例如，在进度条部件（Progressbar Widget）上调用 value() 方法，我们可以使用：</p>
+<pre><code>$( &quot;#elem&quot; ).progressbar( &quot;value&quot; );
+</code></pre><p>如果方法接受参数，我们可以在方法名称后传递参数。例如，要传递参数 40 到 value() 方法，我们可以使用：</p>
+<pre><code>$( &quot;#elem&quot; ).progressbar( &quot;value&quot;, 40 );
+</code></pre><p>就像 jQuery 中的其他方法，大多数的小部件方法返回 jQuery 对象：</p>
+<pre><code>$( &quot;#elem&quot; )
+  .progressbar( &quot;value&quot;, 90 )
+  .addClass( &quot;almost-done&quot; );
+</code></pre><p>每个小部件都有自己的方法设置，这些设置是基于小部件提供的功能。但是，有一些方法是存在于所有的小部件上，这会在下面进行详细讲解。</p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>所有的小部件都有与它们各种行为相关的事件，以便在状态改变的时候通知您。对于大多数的小部件，当事件被触发时，名称以小部件名称的<strong>小写字母形式作为前缀</strong>。例如，我们可以绑定进度条的 change 事件，该事件在值改变时触发。</p>
+<pre><code>$( &quot;#elem&quot; ).bind( &quot;progressbarchange&quot;, function() {
+  alert( &quot;The value has changed!&quot; );
+});
+</code></pre><p>每个事件都有一个对应的回调，这会作为选项。如果需要，我们可以抓住进度条的 change 回调，而不用绑定 progressbarchange 事件。</p>
+<pre><code>$( &quot;#elem&quot; ).progressbar({
+  change: function() {
+    alert( &quot;The value has changed!&quot; );
+  }
+});
+</code></pre><p>所有的小部件都有一个 change 事件，该事件在实例化时触发。</p>
+<h2 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h2><p>小部件的实例是使用带有小部件全称作为键的 <code>jQuery.data()</code> 存储的。因此，您可以使用下面代码从元素检索进度条部件（Progressbar Widget）的实例对象。</p>
+<pre><code>$( &quot;#elem&quot; ).data( &quot;ui-progressbar&quot; );
+</code></pre><p><strong>元素是否绑定了给定小部件</strong>，可以使用 <code>:data</code> 选择器来检测。</p>
+<pre><code>$( &quot;#elem&quot; ).is( &quot;:data( &apos;ui-progressbar&apos; )&quot; ); // true
+$( &quot;#elem&quot; ).is( &quot;:data( &apos;ui-draggable&apos; )&quot; ); // false
+</code></pre><p>您也可以使用 :data 来获得作为给定小部件实例的所有元素的列表。</p>
+<pre><code>$( &quot;:data( &apos;ui-progressbar&apos; )&quot; );
+</code></pre><h2 id="实例销毁"><a href="#实例销毁" class="headerlink" title="实例销毁"></a>实例销毁</h2><pre><code>if($( &quot;#elem&quot; ).data(&apos;ui-progressbar&apos;)) {//判断实例是否存在
+    $( &quot;#elem&quot; ).progressbar(&apos;destroy&apos;);
+}
+</code></pre>  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/jquery/">jquery</a><a href="/tags/widget/">widget</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="https://emila-github.github.io/2016/09/02/jQuery.widget - 用法/" data-title="jQuery.widget - 用法 | emila" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/09/02/Jekyll - Jekyll on Windows/" title="Jekyll - Jekyll on Windows">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Jekyll - Jekyll on Windows</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/09/02/node.js之path模块/"  title="node.js之path模块">
+ <strong>NEXT:</strong><br/> 
+ <span>node.js之path模块
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jQuery-widget-用法"><span class="toc-number">1.</span> <span class="toc-text">jQuery.widget - 用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化"><span class="toc-number">1.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选项"><span class="toc-number">1.2.</span> <span class="toc-text">选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-number">1.3.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件"><span class="toc-number">1.4.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例化"><span class="toc-number">1.5.</span> <span class="toc-text">实例化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例销毁"><span class="toc-number">1.6.</span> <span class="toc-text">实例销毁</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/DataTables/" title="DataTables">DataTables<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
+		
+			<li><a href="/tags/YUIDoc/" title="YUIDoc">YUIDoc<sup>1</sup></a></li>
+		
+			<li><a href="/tags/gem/" title="gem">gem<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>6</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>2</sup></a></li>
+		
+			<li><a href="/tags/html-webpack-plugin/" title="html-webpack-plugin">html-webpack-plugin<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jquery/" title="jquery">jquery<sup>3</sup></a></li>
+		
+			<li><a href="/tags/jsdocs/" title="jsdocs">jsdocs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jshint/" title="jshint">jshint<sup>1</sup></a></li>
+		
+			<li><a href="/tags/node/" title="node">node<sup>1</sup></a></li>
+		
+			<li><a href="/tags/path/" title="path">path<sup>1</sup></a></li>
+		
+			<li><a href="/tags/spmjs/" title="spmjs">spmjs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/sublime/" title="sublime">sublime<sup>1</sup></a></li>
+		
+			<li><a href="/tags/svg/" title="svg">svg<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+		
+			<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+			<li><a href="/tags/virtualbox/" title="virtualbox">virtualbox<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webStorm/" title="webStorm">webStorm<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>2</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="https://emila-github.github.io" target="_blank" title="emila">emila</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

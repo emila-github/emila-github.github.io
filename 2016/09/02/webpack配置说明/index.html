@@ -4,12 +4,18 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | emila</title>
+    <title>webpack配置说明 | emila</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="emila">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="webpack配置说明module.exports = {
+  entry: &amp;quot;./src/main.js&amp;quot;,
+  output: {
+    filename: &amp;quot;build/build.js&amp;quot;
+  },
+  module: {
+    loaders: [">
     
     
     
@@ -65,15 +71,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/05/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2016/09/02/webpack配置说明/" title="webpack配置说明" itemprop="url">webpack配置说明</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://emila-github.github.io" title="emila">emila</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-09-05T06:46:11.043Z" itemprop="datePublished">2016-09-05</time>
-    更新日期:<time datetime="2016-09-05T06:46:11.059Z" itemprop="dateModified">2016-09-05</time>
+    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
+    更新日期:<time datetime="2016-09-05T13:30:52.503Z" itemprop="dateModified">2016-09-05</time>
     
   </p>
 </header>
@@ -82,25 +88,74 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack配置说明"><span class="toc-number">1.</span> <span class="toc-text">webpack配置说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack的几个命令"><span class="toc-number">2.</span> <span class="toc-text">webpack的几个命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置运行环境"><span class="toc-number">3.</span> <span class="toc-text">设置运行环境</span></a></li></ol>
 		</div>
 		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+		<h2 id="webpack配置说明"><a href="#webpack配置说明" class="headerlink" title="webpack配置说明"></a>webpack配置说明</h2><pre><code>module.exports = {
+  entry: &quot;./src/main.js&quot;,
+  output: {
+    filename: &quot;build/build.js&quot;
+  },
+  module: {
+    loaders: [
+       //.css 文件使用 style-loader 和 css-loader 来处理
+      { test: /\.css$/, loader: &quot;style!css&quot; },
+      //.js 文件使用 jsx-loader 来编译处理
+      { test: /\.js$/,    loader: &quot;jsx-loader&quot; }
+    ]
+  },
+  resolve: {
+    extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.jsx&apos;]
+    fallback: [path.join(__dirname, &apos;../node_modules&apos;)],
+    alias: {
+        &apos;src&apos;: path.resolve(__dirname, &apos;../src&apos;),
+        &apos;assets&apos;: path.resolve(__dirname, &apos;../src/assets&apos;),
+        &apos;components&apos;: path.resolve(__dirname, &apos;../src/components&apos;)
+    }
+  },
+  plugins: []
+};
+</code></pre><p>entry 是页面中的入口文件，比如我这边的入口文件时main.js</p>
+<p>output: 是指页面通过webpack打包后生成的目标文件放在什么地方去，我这边是在根目录下生成build文件夹，该文件夹内有一个build.js文件；</p>
+<p>resolve: 定义了解析模块路径时的配置，常用的就是extensions; 可以用来指定模块的后缀，这样在引入模块时就不需要写后缀，会自动补全。</p>
+<p>plugins: 定义了需要使用的插件，比如commonsPlugin在打包多个入口文件时会提取公用的部分，生成common.js;</p>
+<p>module.loaders：是文件的加载器，比如我们之前react需要在页面中引入jsx的js源码到页面上来，然后使用该语法，但是通过webpack打包后就不需要再引入JSXTransformer.js；看到上面的加载器；比如jsx-loader加载器就是代表JSXTransformer.js的，还有style-loader和css-loader加载器；因此在使用之前我们需要通过命令把它引入到项目上来；因此需要如下命令生成下；</p>
+<p>jsx-loader加载器 npm install jsx-loader –save-dev</p>
+<p>module.loader: 其中test是正则表达式，对符合的文件名使用相应的加载器. </p>
+<p>/.css$/会匹配 xx.css文件，但是并不适用于xx.sass或者xx.css.zip文件.</p>
+<p>url-loader 它会将样式中引用到的图片转为模块来处理; 配置信息的参数“?limit=8192”表示将所有小于8kb的图片都转为base64形式。</p>
+<p>entry 模块的入口文件。依赖项数组中所有的文件会按顺序打包，每个文件进行依赖的递归查找，直到所有模块都被打成包；</p>
+<p>output：模块的输出文件，其中有如下参数：</p>
+<p>filename: 打包后的文件名</p>
+<p>path: 打包文件存放的绝对路径。</p>
+<p>publicPath: 网站运行时的访问路径。</p>
+<p>relolve.extensions: 自动扩展文件的后缀名，比如我们在require模块的时候，可以不用写后缀名的。</p>
+<p>relolve.fallback 当 webpack 在 root（默认当前文件夹，配置时要绝对路径） 和 modulesDirectories（默认当前文件夹，相对路径）配置下面找不到相关modules，去哪个文件夹下找 modules</p>
+<p>relolve.alias: 模块别名定义，方便后续直接引用别名，无须多写长长的地址</p>
+<p>plugins 是插件项;</p>
+<h2 id="webpack的几个命令"><a href="#webpack的几个命令" class="headerlink" title="webpack的几个命令"></a>webpack的几个命令</h2><ol>
+<li>webpack         // 最基本的启动webpack的方法</li>
+<li>webpack -w      // 提供watch方法；实时进行打包更新</li>
+<li>webpack -p      // 对打包后的文件进行压缩</li>
+<li>webpack -d      // 提供source map，方便调式代码</li>
+<li>webpack –colors #输出结果带彩色，比如：会用红色显示耗时较长的步骤</li>
+<li>webpack –profile #输出性能数据，可以看到每一步的耗时</li>
+<li>webpack –display-modules #默认情况下 node_modules 下的模块会被隐藏，加上这个参数可以显示这些被隐藏的模块</li>
+</ol>
+<h2 id="设置运行环境"><a href="#设置运行环境" class="headerlink" title="设置运行环境"></a>设置运行环境</h2><p>在环境变量中定义 NODE_ENV 变量帮助 node 识别环境，例如：</p>
+<pre><code>//Windows
+set NODE_ENV=test 
+//Linux or OSX
+export NODE_ENV=test
+</code></pre><p>参考资料</p>
+<p><a href="http://www.cnblogs.com/tugenhua0707/p/4793265.html" target="_blank" rel="external">- 30分钟手把手教你学webpack实战</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/hexo/">hexo</a>
+  <span></span> <a href="/tags/webpack/">webpack</a>
   </div>
 
 
@@ -108,7 +163,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="https://emila-github.github.io/2016/09/05/hello-world/" data-title="Hello World | emila" data-tsina="null" class="share clearfix">
+  <div data-url="https://emila-github.github.io/2016/09/02/webpack配置说明/" data-title="webpack配置说明 | emila" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -118,18 +173,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/09/05/Git分支管理策略/" title="Git分支管理策略">
+ <a href="/2016/09/02/vim - 命令合集/" title="Vim - 命令合集">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Git分支管理策略</span>
+  Vim - 命令合集</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/09/02/SVG - 参考手册/"  title="SVG - 参考手册">
+<a href="/2016/09/02/jquery - jquery each函数 break和continue功能/"  title="jquery - jquery each函数 break和continue功能">
  <strong>NEXT:</strong><br/> 
- <span>SVG - 参考手册
+ <span>jquery - jquery each函数 break和continue功能
 </span>
 </a>
 </div>
@@ -142,7 +197,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack配置说明"><span class="toc-number">1.</span> <span class="toc-text">webpack配置说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack的几个命令"><span class="toc-number">2.</span> <span class="toc-text">webpack的几个命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置运行环境"><span class="toc-number">3.</span> <span class="toc-text">设置运行环境</span></a></li></ol>
   </div>
 
 <div id="asidepart">

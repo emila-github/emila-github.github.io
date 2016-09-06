@@ -1,0 +1,416 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>git - 简易指南 | emila</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="emila">
+    
+    <meta name="description" content="git - 简易指南安装下载 git OSX 版
+下载 git Windows 版
+下载 git Linux 版
+创建新仓库创建新文件夹，打开，然后执行 git init 以创建新的 git 仓库。
+检出仓库执行如下命令以创建一个本地仓库的克隆版本：
+git clone /path/to/repos">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="emila" title="emila"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="emila">emila</a></h1>
+				<h2 class="blog-motto">simple and easy to study</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:emila-github.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/09/02/git - 简易指南/" title="git - 简易指南" itemprop="url">git - 简易指南</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://emila-github.github.io" title="emila">emila</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
+    更新日期:<time datetime="2016-09-05T13:30:52.490Z" itemprop="dateModified">2016-09-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git-简易指南"><span class="toc-number">1.</span> <span class="toc-text">git - 简易指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建新仓库"><span class="toc-number">1.2.</span> <span class="toc-text">创建新仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检出仓库"><span class="toc-number">1.3.</span> <span class="toc-text">检出仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作流"><span class="toc-number">1.4.</span> <span class="toc-text">工作流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加与提交"><span class="toc-number">1.5.</span> <span class="toc-text">添加与提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推送改动"><span class="toc-number">1.6.</span> <span class="toc-text">推送改动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支"><span class="toc-number">1.7.</span> <span class="toc-text">分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新与合并"><span class="toc-number">1.8.</span> <span class="toc-text">更新与合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签"><span class="toc-number">1.9.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#替换本地改动"><span class="toc-number">1.10.</span> <span class="toc-text">替换本地改动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有用的贴士"><span class="toc-number">1.11.</span> <span class="toc-text">有用的贴士</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接与资源"><span class="toc-number">1.12.</span> <span class="toc-text">链接与资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图形化界面"><span class="toc-number">1.12.1.</span> <span class="toc-text">图形化界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指南与手册"><span class="toc-number">1.12.2.</span> <span class="toc-text">指南与手册</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#来源"><span class="toc-number">1.13.</span> <span class="toc-text">来源</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="git-简易指南"><a href="#git-简易指南" class="headerlink" title="git - 简易指南"></a>git - 简易指南</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="http://code.google.com/p/git-osx-installer/downloads/list?can=3" target="_blank" rel="external">下载 git OSX 版</a></p>
+<p><a href="http://code.google.com/p/msysgit/downloads/list?can=3" target="_blank" rel="external">下载 git Windows 版</a></p>
+<p><a href="http://book.git-scm.com/2_installing_git.html" target="_blank" rel="external">下载 git Linux 版</a></p>
+<h2 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h2><p>创建新文件夹，打开，然后执行 <code>git init</code> 以创建新的 git 仓库。</p>
+<h2 id="检出仓库"><a href="#检出仓库" class="headerlink" title="检出仓库"></a>检出仓库</h2><p>执行如下命令以创建一个本地仓库的克隆版本：</p>
+<pre><code>git clone /path/to/repository
+</code></pre><p>如果是远端服务器上的仓库，你的命令会是这个样子：</p>
+<pre><code>git clone username@host:/path/to/repository
+</code></pre><h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><p>你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 <strong>工作目录</strong>，它持有实际文件；第二个是 <strong>缓存区（Index）</strong>，它像个缓存区域，临时保存你的改动；最后是 <strong>HEAD</strong>，指向你最近一次提交后的结果。</p>
+<p><img src="/images/git-guide.png" alt=""></p>
+<h2 id="添加与提交"><a href="#添加与提交" class="headerlink" title="添加与提交"></a>添加与提交</h2><p>你可以计划改动（把它们添加到缓存区），使用如下命令：</p>
+<pre><code>git add &lt;filename&gt;
+
+git add *
+</code></pre><p>这是 git 基本工作流程的第一步；使用如下命令以实际提交改动：</p>
+<pre><code>git commit -m &quot;代码提交信息&quot;
+</code></pre><p>现在，你的改动已经提交到了 HEAD，但是还没到你的远端仓库。</p>
+<h2 id="推送改动"><a href="#推送改动" class="headerlink" title="推送改动"></a>推送改动</h2><p>你的改动现在已经在本地仓库的 HEAD 中了。执行如下命令以将这些改动提交到远端仓库：</p>
+<pre><code>git push origin master
+</code></pre><p>可以把 master 换成你想要推送的任何分支。 </p>
+<p>如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加：</p>
+<pre><code>git remote add origin &lt;server&gt;
+</code></pre><p>如此你就能够将你的改动推送到所添加的服务器上去了。</p>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>分支是用来将特性开发绝缘开来的。在你创建仓库的时候，master 是“默认的”。在其他分支上进行开发，完成后再将它们合并到主分支上。</p>
+<p><img src="/images/git-guide-branch.png" alt=""></p>
+<p>创建一个叫做“feature_x”的分支，并切换过去：</p>
+<pre><code>git checkout -b feature_x
+</code></pre><p>切换回主分支：</p>
+<pre><code>git checkout master
+</code></pre><p>再把新建的分支删掉：</p>
+<pre><code>git branch -d feature_x
+</code></pre><p>除非你将分支推送到远端仓库，不然该分支就是 不为他人所见的：</p>
+<pre><code>git push origin &lt;branch&gt;
+</code></pre><h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2><p>要更新你的本地仓库至最新改动，执行：</p>
+<pre><code>git pull
+</code></pre><p>以在你的工作目录中 获取（fetch） 并 合并（merge） 远端的改动。</p>
+<p>要合并其他分支到你的当前分支（例如 master），执行：</p>
+<pre><code>git merge &lt;branch&gt;
+</code></pre><p>两种情况下，git 都会尝试去自动合并改动。不幸的是，自动合并并非次次都能成功，并可能导致 冲突（conflicts）。 这时候就需要你修改这些文件来人肉合并这些 冲突（conflicts） 了。改完之后，你需要执行如下命令以将它们标记为合并成功：</p>
+<pre><code>git add &lt;filename&gt;
+</code></pre><p>在合并改动之前，也可以使用如下命令查看：</p>
+<pre><code>git diff &lt;source_branch&gt; &lt;target_branch&gt;
+</code></pre><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>在软件发布时创建标签，是被推荐的。这是个旧有概念，在 SVN 中也有。可以执行如下命令以创建一个叫做 1.0.0 的标签：</p>
+<pre><code>git tag 1.0.0 1b2e1d63ff
+</code></pre><p>1b2e1d63ff 是你想要标记的提交 ID 的前 10 位字符。使用如下命令获取提交 ID：</p>
+<pre><code>git log
+// git log --pretty=oneline //  查看当行日志 
+</code></pre><p>你也可以用该提交 ID 的少一些的前几位，只要它是唯一的。</p>
+<h2 id="替换本地改动"><a href="#替换本地改动" class="headerlink" title="替换本地改动"></a>替换本地改动</h2><p>假如你做错事（自然，这是不可能的），你可以使用如下命令替换掉本地改动：</p>
+<pre><code>git checkout -- &lt;filename&gt;
+</code></pre><p>此命令会使用 HEAD 中的最新内容替换掉你的工作目录中的文件。已添加到缓存区的改动，以及新文件，都不受影响。</p>
+<p>假如你想要丢弃你所有的本地改动与提交，可以到服务器上获取最新的版本并将你本地主分支指向到它：</p>
+<pre><code>git fetch origin
+git reset --hard origin/master
+</code></pre><h2 id="有用的贴士"><a href="#有用的贴士" class="headerlink" title="有用的贴士"></a>有用的贴士</h2><p>内建的图形化 git：<code>gitk</code></p>
+<p>彩色的 git 输出：<code>git config color.ui true</code></p>
+<p>显示历史记录时，只显示一行注释信息：<code>git config format.pretty oneline</code></p>
+<p>交互地添加文件至缓存区：<code>git add -i</code></p>
+<h2 id="链接与资源"><a href="#链接与资源" class="headerlink" title="链接与资源"></a>链接与资源</h2><h3 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a>图形化界面</h3><ul>
+<li><a href="http://gitx.laullon.com/" target="_blank" rel="external">GitX (L) (OSX, open source)</a></li>
+<li><a href="http://www.git-tower.com/" target="_blank" rel="external">Tower (OSX)</a></li>
+<li><a href="http://www.sourcetreeapp.com/" target="_blank" rel="external">Source Tree (OSX, free)</a></li>
+<li><a href="http://mac.github.com/" target="_blank" rel="external">GitHub for Mac (OSX, free)</a></li>
+<li><a href="https://itunes.apple.com/gb/app/gitbox/id403388357?mt=12" target="_blank" rel="external">GitBox (OSX)</a></li>
+</ul>
+<h3 id="指南与手册"><a href="#指南与手册" class="headerlink" title="指南与手册"></a>指南与手册</h3><ul>
+<li><a href="http://book.git-scm.com/" target="_blank" rel="external">Git 社区参考书</a></li>
+<li><a href="http://progit.org/book/" target="_blank" rel="external">专业 Git</a></li>
+<li><a href="http://think-like-a-git.net/" target="_blank" rel="external">如 git 思考</a></li>
+<li><a href="http://help.github.com/" target="_blank" rel="external">GitHub 帮助</a></li>
+<li><a href="http://marklodato.github.com/visual-git-guide/index-en.html" target="_blank" rel="external">图形化的 Git 指南一则</a></li>
+</ul>
+<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p><a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="external">git - 简易指南</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/git/">git</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="https://emila-github.github.io/2016/09/02/git - 简易指南/" data-title="git - 简易指南 | emila" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/09/02/gem - 源更换/" title="gem 源更换">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  gem 源更换</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/09/02/github - 一步一步教你怎样给Apache Spark贡献代码/"  title="github - 一步一步教你怎样给Apache Spark贡献代码">
+ <strong>NEXT:</strong><br/> 
+ <span>github - 一步一步教你怎样给Apache Spark贡献代码
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git-简易指南"><span class="toc-number">1.</span> <span class="toc-text">git - 简易指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建新仓库"><span class="toc-number">1.2.</span> <span class="toc-text">创建新仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检出仓库"><span class="toc-number">1.3.</span> <span class="toc-text">检出仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作流"><span class="toc-number">1.4.</span> <span class="toc-text">工作流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加与提交"><span class="toc-number">1.5.</span> <span class="toc-text">添加与提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推送改动"><span class="toc-number">1.6.</span> <span class="toc-text">推送改动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支"><span class="toc-number">1.7.</span> <span class="toc-text">分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新与合并"><span class="toc-number">1.8.</span> <span class="toc-text">更新与合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签"><span class="toc-number">1.9.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#替换本地改动"><span class="toc-number">1.10.</span> <span class="toc-text">替换本地改动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有用的贴士"><span class="toc-number">1.11.</span> <span class="toc-text">有用的贴士</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接与资源"><span class="toc-number">1.12.</span> <span class="toc-text">链接与资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图形化界面"><span class="toc-number">1.12.1.</span> <span class="toc-text">图形化界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指南与手册"><span class="toc-number">1.12.2.</span> <span class="toc-text">指南与手册</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#来源"><span class="toc-number">1.13.</span> <span class="toc-text">来源</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/DataTables/" title="DataTables">DataTables<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
+		
+			<li><a href="/tags/YUIDoc/" title="YUIDoc">YUIDoc<sup>1</sup></a></li>
+		
+			<li><a href="/tags/gem/" title="gem">gem<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>6</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>2</sup></a></li>
+		
+			<li><a href="/tags/html-webpack-plugin/" title="html-webpack-plugin">html-webpack-plugin<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jquery/" title="jquery">jquery<sup>3</sup></a></li>
+		
+			<li><a href="/tags/jsdocs/" title="jsdocs">jsdocs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jshint/" title="jshint">jshint<sup>1</sup></a></li>
+		
+			<li><a href="/tags/node/" title="node">node<sup>1</sup></a></li>
+		
+			<li><a href="/tags/path/" title="path">path<sup>1</sup></a></li>
+		
+			<li><a href="/tags/spmjs/" title="spmjs">spmjs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/sublime/" title="sublime">sublime<sup>1</sup></a></li>
+		
+			<li><a href="/tags/svg/" title="svg">svg<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+		
+			<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+			<li><a href="/tags/virtualbox/" title="virtualbox">virtualbox<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webStorm/" title="webStorm">webStorm<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>2</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="https://emila-github.github.io" target="_blank" title="emila">emila</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

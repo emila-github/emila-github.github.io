@@ -1,0 +1,343 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>webpack 插件： html-webpack-plugin | emila</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="emila">
+    
+    <meta name="description" content="webpack 插件： html-webpack-plugin                插件地址：https://www.npmjs.com/package/html-webpack-plugin这个插件用来简化创建服务于 webpack bundle 的 HTML 文件，尤其是对于在文件名中">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="emila" title="emila"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="emila">emila</a></h1>
+				<h2 class="blog-motto">simple and easy to study</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:emila-github.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/09/02/webpack 插件： html-webpack-plugin/" title="webpack 插件： html-webpack-plugin" itemprop="url">webpack 插件： html-webpack-plugin</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://emila-github.github.io" title="emila">emila</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
+    更新日期:<time datetime="2016-09-05T13:30:52.502Z" itemprop="dateModified">2016-09-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">            webpack 插件： html-webpack-plugin        </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">Basic Usage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">Configuration</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">生成多个 HTML 文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">编写自定义模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">过滤块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">事件</span></a>
+		</div>
+		
+		<div class="post"><br>        <h2><br>            <a id="cb_post_title_url" href="http://www.cnblogs.com/haogj/p/5160821.html" target="_blank" rel="external">webpack 插件： html-webpack-plugin</a><br>        </h2><br>        <div id="cnblogs_post_body"><p>插件地址：<a href="https://www.npmjs.com/package/html-webpack-plugin" target="_blank">https://www.npmjs.com/package/html-webpack-plugin</a></p><br><p>这个插件用来简化创建服务于 webpack bundle 的 HTML 文件，尤其是对于在文件名中包含了 hash 值，而这个值在每次编译的时候都发生变化的情况。你既可以让这个插件来帮助你自动生成 HTML 文件，也可以使用 lodash 模板加载生成的 bundles，或者自己加载这些 bundles。</p><br><h1>Installation</h1><br><p>使用 npm 安装这个插件</p><br><div class="cnblogs_code"><br><pre>$ npm <span style="color: #0000ff;">install</span> html-webpack-plugin@<span style="color: #800080;">2</span> –save-dev</pre><br></div><br><p>&nbsp;</p><br><h1>Basic Usage</h1><br><p>这个插件可以帮助生成 HTML 文件，在 body 元素中，使用 script 来包含所有你的 webpack bundles，只需要在你的 webpack 配置文件中如下配置：</p><br><br><pre><span style="color: #0000ff;">var</span> HtmlWebpackPlugin = require(‘html-webpack-plugin’<span style="color: #000000;">)<br></span><span style="color: #0000ff;">var</span> webpackConfig =<span style="color: #000000;"> {<br>  entry: </span>‘index.js’<span style="color: #000000;">,<br>  output: {<br>    path: </span>‘dist’<span style="color: #000000;">,<br>    filename: </span>‘index_bundle.js’<span style="color: #000000;"><br>  },<br>  plugins: [</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> HtmlWebpackPlugin()]<br>}</span></pre><br><br><p>这将会自动在 dist 目录中生成一个名为 index.html 的文件，内容如下：</p><br><br><pre><span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE html</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span><br>    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">charset</span><span style="color: #0000ff;">=”UTF-8”</span><span style="color: #0000ff;">&gt;</span><br>    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>Webpack App<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span><br>    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">=”index_bundle.js”</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre><br><br><p>如果你有多个 webpack 入口点，它们都会被包含在生成的 script 元素中。</p><br><p>如果有任何的 CSS 资源包含在 webpack 输出中（例如，使用 ExtractTextPlugin 提炼出的 css ），这些将会使用 link 包含在 HTML 页面的 head 元素中。</p><br><h1>Configuration</h1><br><p>&nbsp;可以进行一系列的配置，支持如下的配置信息</p><br><ul><br><li>title: 用来生成页面的 title 元素</li><br><li>filename: 输出的 HTML 文件名，默认是 index.html, 也可以直接配置带有子目录。</li><br><li>template: 模板文件路径，支持加载器，比如 html!./index.html</li><br><li>inject: true | ‘head’ | ‘body’ | false &nbsp;,注入所有的资源到特定的 template 或者 templateContent 中，如果设置为 true 或者 body，所有的 javascript 资源将被放置到 body 元素的底部，’head’ 将放置到 head 元素中。</li><br><li>favicon: 添加特定的 favicon 路径到输出的 HTML 文件中。</li><br><li>minify: {} | false , 传递 html-minifier 选项给 minify 输出</li><br><li>hash: true | false, 如果为 true, 将添加一个唯一的 webpack 编译 hash 到所有包含的脚本和 CSS 文件，对于解除 cache 很有用。</li><br><li>cache: true | false，如果为 true, 这是默认值，仅仅在文件修改之后才会发布文件。</li><br><li>showErrors: true | false, 如果为 true, 这是默认值，错误信息会写入到 HTML 页面中</li><br><li>chunks: 允许只添加某些块 (比如，仅仅 unit test 块)</li><br><li>chunksSortMode: 允许控制块在添加到页面之前的排序方式，支持的值：’none’ | ‘default’ | {function}-default:’auto’</li><br><li>excludeChunks: 允许跳过某些块，(比如，跳过单元测试的块)&nbsp;</li><br></ul><br><p>下面的示例演示了如何使用这些配置。</p><br><br><pre><span style="color: #000000;">{<br>  entry: </span>‘index.js’<span style="color: #000000;">,<br>  output: {<br>    path: </span>‘dist’<span style="color: #000000;">,<br>    filename: </span>‘index_bundle.js’<span style="color: #000000;">,<br>    hash: </span><span style="color: #0000ff;">true</span><span style="color: #000000;"><br>  },<br>  plugins: [<br>    </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> HtmlWebpackPlugin({<br>      title: </span>‘My App’<span style="color: #000000;">,<br>      filename: </span>‘assets/admin.html’<span style="color: #000000;"><br>    })<br>  ]<br>}</span></pre><br><br><p>&nbsp;</p><br><p>&nbsp;</p><br><h1>生成多个 HTML 文件</h1><br><p>通过在配置文件中添加多次这个插件，来生成多个 HTML 文件。</p><br><br><pre><span style="color: #000000;">{<br>  entry: </span>‘index.js’<span style="color: #000000;">,<br>  output: {<br>    path: </span>‘dist’<span style="color: #000000;">,<br>    filename: </span>‘index_bundle.js’<span style="color: #000000;"><br>  },<br>  plugins: [<br>    </span><span style="color: #0000ff;">new</span> HtmlWebpackPlugin(), <span style="color: #008000;">//</span><span style="color: #008000;"> Generates default index.html </span><br>    <span style="color: #0000ff;">new</span> HtmlWebpackPlugin({  <span style="color: #008000;">//</span><span style="color: #008000;"> Also generate a test.html </span><br>      filename: ‘test.html’<span style="color: #000000;">,<br>      template: </span>‘src/assets/test.html’<span style="color: #000000;"><br>    })<br>  ]<br>}</span></pre><br><br><p>&nbsp;</p><br><h1>编写自定义模板</h1><br><p>如果默认生成的 HTML 文件不适合你的需要看，可以创建自己定义的模板。方便的方式是通过 inject 选项，然后传递给定制的 HTML 文件。html-webpack-plugin 将会自动注入所有需要的 CSS, js, manifest 和 favicon 文件到标记中。</p><br><br><pre><span style="color: #000000;">plugins: [<br>  </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> HtmlWebpackPlugin({<br>    title: </span>‘Custom template’<span style="color: #000000;">,<br>    template: </span>‘my-index.html’, <span style="color: #008000;">//</span><span style="color: #008000;"> Load a custom template </span><br>    inject: ‘body’ <span style="color: #008000;">//</span><span style="color: #008000;"> Inject all scripts into the body </span><br><span style="color: #000000;">  })<br>]</span></pre><br><br><p>my-index.html 文件</p><br><br><pre><span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE html</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span><br>    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">=”Content-type”</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">=”text/html; charset=utf-8”</span><span style="color: #0000ff;">/&gt;</span><br>    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span><span style="background-color: #ffff00; color: #000000;">&lt;%</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> htmlWebpackPlugin.options.title </span><span style="background-color: #ffff00; color: #000000;">%&gt;</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre><br><br><p>&nbsp;</p><br><p>如果你有模板加载器，可以使用它来解析这个模板。</p><br><br><pre><span style="color: #000000;">module: {<br>  loaders: [<br>    { test: </span>/.hbs$/, loader: “handlebars”<span style="color: #000000;"> }<br>  ]<br>},<br>plugins: [<br>  </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> HtmlWebpackPlugin({<br>    title: </span>‘Custom template using Handlebars’<span style="color: #000000;">,<br>    template: </span>‘my-index.hbs’<span style="color: #000000;">,<br>    inject: </span>‘body’<span style="color: #000000;"><br>  })<br>]</span></pre><br><br><p>&nbsp;</p><br><p>另外，如果你的模式是一个字符串，可以使用 templateContent 传递它。</p><br><div class="cnblogs_code"><br><pre><span style="color: #000000;">plugins: [<br>  </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> HtmlWebpackPlugin({<br>    inject: </span><span style="color: #0000ff;">true</span><span style="color: #000000;">,<br>    templateContent: templateContentString<br>  })<br>]</span></pre><br></div><br><p>&nbsp;</p><br><p>如果 inject 特性不适合你的需要，你希望完全控制资源放置。 可以直接使用 lodash 语法，使用 &nbsp;<a href="https://github.com/ampedandwired/html-webpack-plugin/blob/master/default_index.ejs" target="_blank" rel="external">default template</a>&nbsp;作为起点创建自己的模板。</p><br><p>templateContent 选项也可以是一个函数，以便使用其它语言，比如 jade：</p><br><br><pre><span style="color: #000000;">plugins: [<br>  </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> HtmlWebpackPlugin({<br>    templateContent: </span><span style="color: #0000ff;">function</span><span style="color: #000000;">(templateParams, compilation) {<br>      </span><span style="color: #008000;">//</span><span style="color: #008000;"> Return your template content synchronously here </span><br>      <span style="color: #0000ff;">return</span> ‘..’<span style="color: #000000;">;<br>    }<br>  })<br>]</span></pre><br><br><p>&nbsp;</p><br><p>或者异步版本</p><br><br><pre><span style="color: #000000;">plugins: [<br>  </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> HtmlWebpackPlugin({<br>    templateContent: </span><span style="color: #0000ff;">function</span><span style="color: #000000;">(templateParams, compilation, callback) {<br>      </span><span style="color: #008000;">//</span><span style="color: #008000;"> Return your template content asynchronously here </span><br>      callback(<span style="color: #0000ff;">null</span>, ‘..’<span style="color: #000000;">);<br>    }<br>  })<br>]</span></pre><br><br><p>&nbsp;</p><br><p>注意，如果同时使用 template 和 templateContent ，插件会抛出错误。</p><br><p>变量 o 在模板中是在渲染时传递进来的数据，这个变量有如下的属性：</p><br><ul><br><li>htmlWebpackPlugin: 这个插件的相关数据<br><br></li><li>htmlWebpackPlugin.files: 资源的块名，来自 webpack 的 stats 对象，包含来自 entry 的从 entry point name 到 bundle 文件名映射。</li><br><li><br><br><pre>“htmlWebpackPlugin”<span style="color: #000000;">: {<br>  </span>“files”<span style="color: #000000;">: {<br>    </span>“css”: [ “main.css”<span style="color: #000000;"> ],<br>    </span>“js”: [ “assets/head_bundle.js”, “assets/main_bundle.js”<span style="color: #000000;">],<br>    </span>“chunks”<span style="color: #000000;">: {<br>      </span>“head”<span style="color: #000000;">: {<br>        </span>“entry”: “assets/head_bundle.js”<span style="color: #000000;">,<br>        </span>“css”: [ “main.css”<span style="color: #000000;"> ]<br>      },<br>      </span>“main”<span style="color: #000000;">: {<br>        </span>“entry”: “assets/main_bundle.js”<span style="color: #000000;">,<br>        </span>“css”<span style="color: #000000;">: []<br>      },<br>    }<br>  }<br>}</span></pre><br><br><p>&nbsp;如果在 webpack 配置文件中，你配置了 publicPath，将会反射正确的资源</p><br></li><br><li>htmlWebpackPlugin.options: 传递给插件的配置。</li><br><li>webpack: webpack 的 stats 对象。</li><br><li>webpackConfig: webpack 配置信息。</li><br></ul><br><h1>过滤块</h1><br><p>可以使用 chunks 来限定特定的块。</p><br><div class="cnblogs_code"><br><pre><span style="color: #000000;">plugins: [<br>  </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> HtmlWebpackPlugin({<br>    chunks: [</span>‘app’<span style="color: #000000;">]<br>  })<br>]</span></pre><br></div><br><p>&nbsp;</p><br><p>还可以使用 excludeChunks 来排除特定块。</p><br><div class="cnblogs_code"><br><pre><span style="color: #000000;">plugins: [<br>  </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> HtmlWebpackPlugin({<br>    excludeChunks: [</span>‘dev-helper’<span style="color: #000000;">]<br>  })<br>]</span></pre><br></div><br><p>&nbsp;</p><br><h1>事件</h1><br><p>通过事件允许其它插件来扩展 HTML。</p><br><ul><br><li><code>html-webpack-plugin-before-html-processing</code></li><br><li><code>html-webpack-plugin-after-html-processing</code></li><br><li><code>html-webpack-plugin-after-emit</code></li><br></ul><br><p>使用方式：</p><br><div class="cnblogs_code"><br><pre>compilation.plugin(‘html-webpack-plugin-before-html-processing’, <span style="color: #0000ff;">function</span><span style="color: #000000;">(htmlPluginData, callback) {<br>  htmlPluginData.html </span>+= ‘The magic footer’<span style="color: #000000;">;<br>  callback();<br>});</span></pre><br></div><br><p>&nbsp;</p></div><div id="MySignature"></div><br><div class="clear"></div>
+
+
+
+<pre><code>&lt;/div&gt;
+</code></pre></div>  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/webpack/">webpack</a><a href="/tags/html-webpack-plugin/">html-webpack-plugin</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="https://emila-github.github.io/2016/09/02/webpack 插件： html-webpack-plugin/" data-title="webpack 插件： html-webpack-plugin | emila" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/09/02/spmjs - 新手入门/" title="spmjs - 新手入门">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  spmjs - 新手入门</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/09/02/webStorm 8.0 - git 应用/"  title="webStorm 8.0 - git 应用">
+ <strong>NEXT:</strong><br/> 
+ <span>webStorm 8.0 - git 应用
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">            webpack 插件： html-webpack-plugin        </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">Basic Usage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">Configuration</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">生成多个 HTML 文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">编写自定义模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">过滤块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">事件</span></a>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/DataTables/" title="DataTables">DataTables<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
+		
+			<li><a href="/tags/YUIDoc/" title="YUIDoc">YUIDoc<sup>1</sup></a></li>
+		
+			<li><a href="/tags/gem/" title="gem">gem<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>6</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>2</sup></a></li>
+		
+			<li><a href="/tags/html-webpack-plugin/" title="html-webpack-plugin">html-webpack-plugin<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jquery/" title="jquery">jquery<sup>3</sup></a></li>
+		
+			<li><a href="/tags/jsdocs/" title="jsdocs">jsdocs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jshint/" title="jshint">jshint<sup>1</sup></a></li>
+		
+			<li><a href="/tags/node/" title="node">node<sup>1</sup></a></li>
+		
+			<li><a href="/tags/path/" title="path">path<sup>1</sup></a></li>
+		
+			<li><a href="/tags/spmjs/" title="spmjs">spmjs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/sublime/" title="sublime">sublime<sup>1</sup></a></li>
+		
+			<li><a href="/tags/svg/" title="svg">svg<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+		
+			<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+			<li><a href="/tags/virtualbox/" title="virtualbox">virtualbox<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webStorm/" title="webStorm">webStorm<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>2</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="https://emila-github.github.io" target="_blank" title="emila">emila</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,376 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>spmjs - 新手入门 | emila</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="emila">
+    
+    <meta name="description" content="spmjs - 新手入门spm 是 CMD 的包管理工具，需要和 Sea.js 配合使用。使用前请先阅读一下 Sea.js 的官方文档，确保已经了解 Sea.js 及其使用方式。
+
+spm3 已正式发布，欢迎访问 http://spmjs.io
+
+安装和配置安装 spm，在此之前请先配置 Node ">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="emila" title="emila"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="emila">emila</a></h1>
+				<h2 class="blog-motto">simple and easy to study</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:emila-github.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/09/02/spmjs - 新手入门/" title="spmjs - 新手入门" itemprop="url">spmjs - 新手入门</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://emila-github.github.io" title="emila">emila</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
+    更新日期:<time datetime="2016-09-05T13:30:52.497Z" itemprop="dateModified">2016-09-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#spmjs-新手入门"><span class="toc-number">1.</span> <span class="toc-text">spmjs - 新手入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装和配置"><span class="toc-number">1.1.</span> <span class="toc-text">安装和配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装模块"><span class="toc-number">1.2.</span> <span class="toc-text">安装模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化项目"><span class="toc-number">1.3.</span> <span class="toc-text">初始化项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块构建"><span class="toc-number">1.4.</span> <span class="toc-text">模块构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布模块"><span class="toc-number">1.5.</span> <span class="toc-text">发布模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件"><span class="toc-number">1.6.</span> <span class="toc-text">插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本命令的使用视频"><span class="toc-number">1.7.</span> <span class="toc-text">基本命令的使用视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#来源"><span class="toc-number">1.8.</span> <span class="toc-text">来源</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="spmjs-新手入门"><a href="#spmjs-新手入门" class="headerlink" title="spmjs - 新手入门"></a>spmjs - 新手入门</h1><p>spm 是 CMD 的包管理工具，需要和 Sea.js 配合使用。使用前请先阅读一下 <a href="http://seajs.org/" target="_blank" rel="external">Sea.js 的官方文档</a>，确保已经了解 Sea.js 及其使用方式。</p>
+<blockquote>
+<p>spm3 已正式发布，欢迎访问 <a href="http://spmjs.io/" target="_blank" rel="external">http://spmjs.io</a></p>
+</blockquote>
+<h2 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h2><p>安装 spm，在此之前请先<a href="http://docs.spmjs.org/doc/environment.html" target="_blank" rel="external">配置 Node 环境</a></p>
+<pre><code>$ npm install spm@2.x -g
+</code></pre><p>spm 核心只有包管理功能，除此之外还提供了很多<a href="http://docs.spmjs.org/cli/help.html" target="_blank" rel="external">插件</a>。</p>
+<p>配置<a href="https://spmjs.org/" target="_blank" rel="external">源服务</a>，在源服务上可以找到所有人分享的模块。</p>
+<pre><code>$ spm config source:default https://spmjs.org
+</code></pre><h2 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h2><p>使用 spm 可以安装源上的任意模块到你的项目中，默认将安装到当前目录下的 sea-modules 目录中。</p>
+<pre><code>$ spm install seajs
+$ spm install jquery
+$ spm install arale/position@1.0.0
+</code></pre><p>具体操作可参考 <code>spm help install</code>。</p>
+<p>当然你可以像 npm 一样，将你的依赖写到 <a href="http://docs.spmjs.org/doc/package" target="_blank" rel="external">package.json</a> 中去，然后使用 spm install 一键安装。</p>
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><p>使用 <a href="http://docs.spmjs.org/cli/init" target="_blank" rel="external">spm-init</a> 命令可以初始化一个标准的 CMD 模块。</p>
+<pre><code>$ npm install spm-init -g
+$ spm init
+</code></pre><h2 id="模块构建"><a href="#模块构建" class="headerlink" title="模块构建"></a>模块构建</h2><p>spm 并没有限制模块的目录结构和组织方式，但是会有推荐的方式，可以先看下<a href="https://github.com/spmjs/spm-build/tree/master/examples/simple" target="_blank" rel="external">标准模块</a>和<a href="https://github.com/spmjs/spm-build/tree/master/examples/simple-grunt" target="_blank" rel="external">自定义模块</a>的示例。</p>
+<p>虽然模块的组织方式不同，但上线前都需要做 <a href="http://docs.spmjs.org/doc/transport.html" target="_blank" rel="external">transport</a> 处理，所以 spm 还提供了构建工具，也分为<a href="http://docs.spmjs.org/doc/spm-build.html" target="_blank" rel="external">标准构建</a>和<a href="http://docs.spmjs.org/doc/grunt-build.html" target="_blank" rel="external">自定义构建</a>两种。</p>
+<h2 id="发布模块"><a href="#发布模块" class="headerlink" title="发布模块"></a>发布模块</h2><p>写好一个模块后，可以用以下命令发布你的模块到源上。</p>
+<pre><code>$ spm publish
+</code></pre><p>在 spmjs.org 上，你需要先<a href="https://spmjs.org/account/signup" target="_blank" rel="external">注册</a>一个用户，然后在命令行中进行登录来获得发布的权限。 你可以发布模块到自己注册的用户名（family）下。</p>
+<pre><code>$ spm login
+</code></pre><h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>spm 还提供一些插件，也欢迎更多插件开发者，<a href="http://docs.spmjs.org/api/develop-plugin.html" target="_blank" rel="external">如何开发</a>?。</p>
+<ul>
+<li><a href="http://docs.spmjs.org/cli/build.html" target="_blank" rel="external">spm-build</a> 构建工具</li>
+<li><a href="http://docs.spmjs.org/cli/init.html" target="_blank" rel="external">spm-init</a> 初始化模块</li>
+<li><a href="http://docs.spmjs.org/cli/status.html" target="_blank" rel="external">spm-status</a> 检查线上 http 状态</li>
+</ul>
+<h2 id="基本命令的使用视频"><a href="#基本命令的使用视频" class="headerlink" title="基本命令的使用视频"></a>基本命令的使用视频</h2><iframe style="margin-bottom:30px;" src="http://ascii.io/a/2533/raw" frameborder="0" width="566" height="646"></iframe>
+
+
+<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p><a href="http://docs.spmjs.org/doc/index" target="_blank" rel="external">http://docs.spmjs.org/doc/index</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/spmjs/">spmjs</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="https://emila-github.github.io/2016/09/02/spmjs - 新手入门/" data-title="spmjs - 新手入门 | emila" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/09/02/Virtualbox - 虚拟机Ubuntu共享文件夹设置 自动挂载/" title="Virtualbox - 虚拟机Ubuntu共享文件夹设置 自动挂载">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Virtualbox - 虚拟机Ubuntu共享文件夹设置 自动挂载</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/09/02/webpack 插件： html-webpack-plugin/"  title="webpack 插件： html-webpack-plugin">
+ <strong>NEXT:</strong><br/> 
+ <span>webpack 插件： html-webpack-plugin
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#spmjs-新手入门"><span class="toc-number">1.</span> <span class="toc-text">spmjs - 新手入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装和配置"><span class="toc-number">1.1.</span> <span class="toc-text">安装和配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装模块"><span class="toc-number">1.2.</span> <span class="toc-text">安装模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化项目"><span class="toc-number">1.3.</span> <span class="toc-text">初始化项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块构建"><span class="toc-number">1.4.</span> <span class="toc-text">模块构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布模块"><span class="toc-number">1.5.</span> <span class="toc-text">发布模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件"><span class="toc-number">1.6.</span> <span class="toc-text">插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本命令的使用视频"><span class="toc-number">1.7.</span> <span class="toc-text">基本命令的使用视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#来源"><span class="toc-number">1.8.</span> <span class="toc-text">来源</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/DataTables/" title="DataTables">DataTables<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
+		
+			<li><a href="/tags/YUIDoc/" title="YUIDoc">YUIDoc<sup>1</sup></a></li>
+		
+			<li><a href="/tags/gem/" title="gem">gem<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>6</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>2</sup></a></li>
+		
+			<li><a href="/tags/html-webpack-plugin/" title="html-webpack-plugin">html-webpack-plugin<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jquery/" title="jquery">jquery<sup>3</sup></a></li>
+		
+			<li><a href="/tags/jsdocs/" title="jsdocs">jsdocs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jshint/" title="jshint">jshint<sup>1</sup></a></li>
+		
+			<li><a href="/tags/node/" title="node">node<sup>1</sup></a></li>
+		
+			<li><a href="/tags/path/" title="path">path<sup>1</sup></a></li>
+		
+			<li><a href="/tags/spmjs/" title="spmjs">spmjs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/sublime/" title="sublime">sublime<sup>1</sup></a></li>
+		
+			<li><a href="/tags/svg/" title="svg">svg<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+		
+			<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+			<li><a href="/tags/virtualbox/" title="virtualbox">virtualbox<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webStorm/" title="webStorm">webStorm<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>2</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="https://emila-github.github.io" target="_blank" title="emila">emila</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

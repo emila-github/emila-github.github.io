@@ -4,12 +4,19 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | emila</title>
+    <title>ubuntu - 乌邦图终端学习笔记 | emila</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="emila">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="ubuntu - 乌邦图终端学习笔记Ctrl+Shift+t 快速打开新的模拟终端起始目录， 家目录
+
+普通用户：/home/username
+root: /root
+
+下如何以root用户登录1、先解除root锁定，为root用户设置密码
+打开终端输入：sudo passwd
+Password: ">
     
     
     
@@ -65,15 +72,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/05/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2016/09/02/ubuntu - 乌邦图终端学习笔记/" title="ubuntu - 乌邦图终端学习笔记" itemprop="url">ubuntu - 乌邦图终端学习笔记</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://emila-github.github.io" title="emila">emila</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-09-05T06:46:11.043Z" itemprop="datePublished">2016-09-05</time>
-    更新日期:<time datetime="2016-09-05T06:46:11.059Z" itemprop="dateModified">2016-09-05</time>
+    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
+    更新日期:<time datetime="2016-09-05T13:30:52.499Z" itemprop="dateModified">2016-09-05</time>
     
   </p>
 </header>
@@ -82,25 +89,74 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ubuntu-乌邦图终端学习笔记"><span class="toc-number">1.</span> <span class="toc-text">ubuntu - 乌邦图终端学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ctrl-Shift-t-快速打开新的模拟终端"><span class="toc-number">1.1.</span> <span class="toc-text">Ctrl+Shift+t 快速打开新的模拟终端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下如何以root用户登录"><span class="toc-number">1.2.</span> <span class="toc-text">下如何以root用户登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#su-切换用户"><span class="toc-number">1.3.</span> <span class="toc-text">su:切换用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件管理"><span class="toc-number">1.4.</span> <span class="toc-text">文件管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装vim"><span class="toc-number">1.5.</span> <span class="toc-text">安装vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作"><span class="toc-number">1.6.</span> <span class="toc-text">文件操作</span></a></li></ol></li></ol>
 		</div>
 		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+		<h1 id="ubuntu-乌邦图终端学习笔记"><a href="#ubuntu-乌邦图终端学习笔记" class="headerlink" title="ubuntu - 乌邦图终端学习笔记"></a>ubuntu - 乌邦图终端学习笔记</h1><h2 id="Ctrl-Shift-t-快速打开新的模拟终端"><a href="#Ctrl-Shift-t-快速打开新的模拟终端" class="headerlink" title="Ctrl+Shift+t 快速打开新的模拟终端"></a>Ctrl+Shift+t 快速打开新的模拟终端</h2><p>起始目录， 家目录</p>
+<ul>
+<li>普通用户：/home/username</li>
+<li>root: /root</li>
+</ul>
+<h2 id="下如何以root用户登录"><a href="#下如何以root用户登录" class="headerlink" title="下如何以root用户登录"></a>下如何以root用户登录</h2><p>1、先解除root锁定，为root用户设置密码</p>
+<p>打开终端输入：<code>sudo passwd</code></p>
+<pre><code>Password: &lt;--- 输入你当前用户的密码
+
+Enter new UNIX password: &lt;--- 新的Root用户密码
+
+Retype new UNIX password: &lt;--- 重复新的Root用户密码
+
+passwd：已成功更新密码
+</code></pre><h2 id="su-切换用户"><a href="#su-切换用户" class="headerlink" title="su:切换用户"></a>su:切换用户</h2><ul>
+<li>su [-] login 切换用户  例如： <code>su - root</code></li>
+<li>sudo passwd 不用切换用户以另外一个用户身份执行命令</li>
+</ul>
+<blockquote>
+<p>su 在不加任何参数，默认为切换到root用户，但没有转到root用户家目录下，也就是说这时虽然是切换为root用户了，但并没有改变root登录环境；su 加参数 - ，表示默认切换到root用户，并且改变到root用户的环境；</p>
+</blockquote>
+<h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><ul>
+<li>文件管理 # ls ls -a 列出当前目录下的所有文件，包括以.头的隐含文件   </li>
+<li>文件管理 # ls ls -l或ll 列出当前目录下文件的详细信息  </li>
+<li>文件管理 # pwd pwd 查看当前所在目录的绝对路经  </li>
+<li>文件管理 # cd <code>cd ..</code> 回当前目录的上一级目录  </li>
+<li>文件管理 # cd <code>cd -</code> 回上一次所在的目录  </li>
+<li>文件管理 # cd <code>cd ~</code> 或 cd 回当前用户的宿主目录  </li>
+<li>文件管理 # cd <code>cd ~用户名</code> 回指定用户的宿主目录 </li>
+</ul>
+<h2 id="安装vim"><a href="#安装vim" class="headerlink" title="安装vim"></a>安装vim</h2><pre><code>sudo apt-get install vim
+</code></pre><ul>
+<li>sudo 表示以管理员身份运行后面的命令</li>
+<li>apt-get 是ubuntu下的包管理工具</li>
+<li>install 是安装的意思</li>
+<li>vim 是一个编辑器软件</li>
+<li><h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2>vi 打开一个不存在的文件a时，在没有输入保存命令时，a文件是不会存储到机器磁盘上的。</li>
+</ul>
+<p><strong>vi打开一个文件时，进入的是阅读模式，只有输入相关命令才会进入编辑模式：</strong></p>
+<ul>
+<li>i :在当前位置插入</li>
+<li>a:在当前位置后追加</li>
+<li>o:在当前位置的后面插入一行</li>
+<li>I :在行头插入</li>
+<li>A:在行尾追加</li>
+<li>O:在当前位置的前面插入一行</li>
+<li>‘ESC’键从编辑模式转换到阅读模式</li>
+</ul>
+<p><strong>阅读模式（或叫命令模式）下：</strong></p>
+<ul>
+<li>:w 保存文件</li>
+<li>:w filename 保存成filename文件</li>
+<li>:q 退出</li>
+<li>:q! 强行退出</li>
+<li>:w! 强行写</li>
+<li>:wq 保存退出</li>
+<li>:x 同wq</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/hexo/">hexo</a>
+  <span></span> <a href="/tags/ubuntu/">ubuntu</a>
   </div>
 
 
@@ -108,7 +164,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="https://emila-github.github.io/2016/09/05/hello-world/" data-title="Hello World | emila" data-tsina="null" class="share clearfix">
+  <div data-url="https://emila-github.github.io/2016/09/02/ubuntu - 乌邦图终端学习笔记/" data-title="ubuntu - 乌邦图终端学习笔记 | emila" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -118,18 +174,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/09/05/Git分支管理策略/" title="Git分支管理策略">
+ <a href="/2016/09/02/sublime - jsdocs使用/" title="sublime-jsdocs 的使用">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Git分支管理策略</span>
+  sublime-jsdocs 的使用</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/09/02/SVG - 参考手册/"  title="SVG - 参考手册">
+<a href="/2016/09/02/Virtualbox - 虚拟机Ubuntu共享文件夹设置 自动挂载/"  title="Virtualbox - 虚拟机Ubuntu共享文件夹设置 自动挂载">
  <strong>NEXT:</strong><br/> 
- <span>SVG - 参考手册
+ <span>Virtualbox - 虚拟机Ubuntu共享文件夹设置 自动挂载
 </span>
 </a>
 </div>
@@ -142,7 +198,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ubuntu-乌邦图终端学习笔记"><span class="toc-number">1.</span> <span class="toc-text">ubuntu - 乌邦图终端学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ctrl-Shift-t-快速打开新的模拟终端"><span class="toc-number">1.1.</span> <span class="toc-text">Ctrl+Shift+t 快速打开新的模拟终端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下如何以root用户登录"><span class="toc-number">1.2.</span> <span class="toc-text">下如何以root用户登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#su-切换用户"><span class="toc-number">1.3.</span> <span class="toc-text">su:切换用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件管理"><span class="toc-number">1.4.</span> <span class="toc-text">文件管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装vim"><span class="toc-number">1.5.</span> <span class="toc-text">安装vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作"><span class="toc-number">1.6.</span> <span class="toc-text">文件操作</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
