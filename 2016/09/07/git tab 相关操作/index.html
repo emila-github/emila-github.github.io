@@ -4,12 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | emila</title>
+    <title>git tab 相关操作 | emila</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="emila">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="标签可以针对某一时间点的版本做标记，常用于版本发布。
+列出标签$ git tag # 在控制台打印出当前仓库的所有标签
+$ git tag -l ‘v0.1.*’ # 搜索符合模式的标签
+打标签git标签分为两种类型：轻量标签和附注标签。轻量标签是指向提交对象的引用，附注标签则是仓库中的一个独立对象">
     
     
     
@@ -65,15 +68,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/05/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2016/09/07/git tab 相关操作/" title="git tab 相关操作" itemprop="url">git tab 相关操作</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://emila-github.github.io" title="emila">emila</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-09-05T06:46:11.043Z" itemprop="datePublished">2016-09-05</time>
-    更新日期:<time datetime="2016-09-05T06:46:11.059Z" itemprop="dateModified">2016-09-05</time>
+    <time datetime="2016-09-07T03:49:31.000Z" itemprop="datePublished">2016-09-07</time>
+    更新日期:<time datetime="2016-09-08T13:37:01.068Z" itemprop="dateModified">2016-09-08</time>
     
   </p>
 </header>
@@ -82,25 +85,47 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#列出标签"><span class="toc-number">1.</span> <span class="toc-text">列出标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打标签"><span class="toc-number">2.</span> <span class="toc-text">打标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换到标签"><span class="toc-number">3.</span> <span class="toc-text">切换到标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除标签"><span class="toc-number">4.</span> <span class="toc-text">删除标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给指定的commit打标签"><span class="toc-number">5.</span> <span class="toc-text">给指定的commit打标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签发布"><span class="toc-number">6.</span> <span class="toc-text">标签发布</span></a></li></ol>
 		</div>
 		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-  
+		<p>标签可以针对某一时间点的版本做标记，常用于版本发布。</p>
+<h2 id="列出标签"><a href="#列出标签" class="headerlink" title="列出标签"></a>列出标签</h2><pre><code>$ git tag # 在控制台打印出当前仓库的所有标签
+$ git tag -l ‘v0.1.*’ # 搜索符合模式的标签
+</code></pre><h2 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h2><p>git标签分为两种类型：轻量标签和附注标签。<br>轻量标签是指向提交对象的引用，附注标签则是仓库中的一个独立对象。建议使用附注标签。</p>
+<pre><code># 创建轻量标签
+$ git tag v0.1.2-light
+
+# 创建附注标签
+$ git tag -a v0.1.2 -m “0.1.2版本”
+</code></pre><p>创建轻量标签不需要传递参数，直接指定标签名称即可。</p>
+<p>创建附注标签时，参数a即annotated的缩写，指定标签类型，后附标签名。参数m指定标签说明，说明信息会保存在标签对象中。</p>
+<h2 id="切换到标签"><a href="#切换到标签" class="headerlink" title="切换到标签"></a>切换到标签</h2><p>与切换分支命令相同，用<code>git checkout [tagname]</code></p>
+<p><strong>查看标签信息</strong></p>
+<p>用git show命令可以查看标签的版本信息：</p>
+<pre><code>$ git show v0.1.2
+</code></pre><h2 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h2><p>误打或需要修改标签时，需要先将标签删除，再打新标签。</p>
+<pre><code>$ git tag -d v0.1.2 # 删除标签
+$ git push origin :refs/tags/v0.1.2 #删除远端服务器的标签
+</code></pre><p>参数d即delete的缩写，意为删除其后指定的标签。</p>
+<h2 id="给指定的commit打标签"><a href="#给指定的commit打标签" class="headerlink" title="给指定的commit打标签"></a>给指定的commit打标签</h2><p>打标签不必要在head之上，也可在之前的版本上打，这需要你知道某个提交对象的校验和（通过git log获取）。</p>
+<pre><code># 补打标签
+$ git tag -a v0.1.1 9fbc3d0
+</code></pre><h2 id="标签发布"><a href="#标签发布" class="headerlink" title="标签发布"></a>标签发布</h2><p>通常的<strong>git push不会将标签对象提交到git服务器</strong>，我们需要进行显式的操作：</p>
+<pre><code>$ git push origin v0.1.2 # 将v0.1.2标签提交到git服务器
+$ git push origin –tags # 将本地所有标签一次性提交到git服务器
+</code></pre><p>注意：如果想看之前某个标签状态下的文件，可以这样操作</p>
+<pre><code>git tag   #查看当前分支下的标签
+
+git  checkout v0.21   #此时会指向打v0.21标签时的代码状态，（但现在处于一个空的分支上）
+
+cat  test.txt   #查看某个文件
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/hexo/">hexo</a>
+  <span></span> <a href="/tags/git/">git</a>
   </div>
 
 
@@ -108,7 +133,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="https://emila-github.github.io/2016/09/05/hello-world/" data-title="Hello World | emila" data-tsina="null" class="share clearfix">
+  <div data-url="https://emila-github.github.io/2016/09/07/git tab 相关操作/" data-title="git tab 相关操作 | emila" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -118,18 +143,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/09/05/Git分支管理策略/" title="Git分支管理策略">
+ <a href="/2016/09/08/git-bash-操作记住密码/" title="git bash 操作记住密码">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Git分支管理策略</span>
+  git bash 操作记住密码</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/09/02/github - 更新 fork 出来的项目使其和源仓库同步/"  title="github 更新 fork 出来的项目使其和源仓库同步">
+<a href="/2016/09/05/Git分支管理策略/"  title="Git分支管理策略">
  <strong>NEXT:</strong><br/> 
- <span>github 更新 fork 出来的项目使其和源仓库同步
+ <span>Git分支管理策略
 </span>
 </a>
 </div>
@@ -142,7 +167,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#列出标签"><span class="toc-number">1.</span> <span class="toc-text">列出标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打标签"><span class="toc-number">2.</span> <span class="toc-text">打标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换到标签"><span class="toc-number">3.</span> <span class="toc-text">切换到标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除标签"><span class="toc-number">4.</span> <span class="toc-text">删除标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给指定的commit打标签"><span class="toc-number">5.</span> <span class="toc-text">给指定的commit打标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签发布"><span class="toc-number">6.</span> <span class="toc-text">标签发布</span></a></li></ol>
   </div>
 
 <div id="asidepart">
