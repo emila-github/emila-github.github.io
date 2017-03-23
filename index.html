@@ -62,168 +62,193 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/09/18/Mocha测试框架学习笔记/" title="Mocha测试框架学习笔记" itemprop="url">
+    <a href="/2017/03/23/expressjs-installing/" title="安装 Express" itemprop="url">
   
-    <h1 itemprop="name">Mocha测试框架学习笔记</h1>
+    <h1 itemprop="name">安装 Express</h1>
     
      
-           <p itemprop="description" >Mocha（发音”摩卡”）诞生于2011年，是现在最流行的JavaScript测试框架之一，在浏览器和Node环境都可以使用。
-所谓”测试框架”，就是运行测试的工具。通过它，可以为JavaScript应用添加测试，从而保证代码的质量。
+           <p itemprop="description" >安装假设您已经安装了 Node.js，创建目录以保存应用程序，并将其设置为工作目录。
 
-安装阮一峰为本文写了一个示例库Mocha-</p>
+
+$ mkdir myapp
+$ cd myapp
+
+
+
+使用 npm init 命令为应用程序创建 package.json 文件。有关 package.json 工作方式的更多信息，请参阅</p>
         
     
-    <time datetime="2016-09-18T02:00:00.000Z" itemprop="datePublished">2016-09-18</time>
+    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/09/10/git rebase 与 git merge 对比/" title="git rebase 与 git merge 对比" itemprop="url">
+    <a href="/2017/03/23/expressjs-generator/" title="Express 应用程序生成器" itemprop="url">
   
-    <h1 itemprop="name">git rebase 与 git merge 对比</h1>
+    <h1 itemprop="name">Express 应用程序生成器</h1>
     
      
-           <p itemprop="description" >基础git rebase用于把一个分支的修改合并到当前分支。
-假设你现在基于远程分支”origin”，创建一个叫”dev”的分支。
-$ git checkout -b dev origin
-现在我们在这个dev分支做一些修改，然后生成两个提交(commit).
-$ vi d1.t</p>
+           <p itemprop="description" >Express 应用程序生成器可使用应用程序生成器工具 (express) 快速创建应用程序框架。
+使用以下命令安装 express：
+
+
+$ npm install express-generator -g
+
+
+
+使用 -h 选项显示命令选项：
+
+
+$ express -h
+
+</p>
         
     
-    <time datetime="2016-09-10T06:44:10.000Z" itemprop="datePublished">2016-09-10</time>
+    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/09/08/git-bash-操作记住密码/" title="git bash 操作记住密码" itemprop="url">
+    <a href="/2017/03/23/expressjs-basic-routing/" title="Express 基本路由" itemprop="url">
   
-    <h1 itemprop="name">git bash 操作记住密码</h1>
+    <h1 itemprop="name">Express 基本路由</h1>
     
      
-           <p itemprop="description" >git for windows 如何记住用户名和密码 
+           <p itemprop="description" >基本路由路由用于确定应用程序如何响应对特定端点的客户机请求，包含一个 URI（或路径）和一个特定的 HTTP 请求方法（GET、POST 等）。
+每个路由可以具有一个或多个处理程序函数，这些函数在路由匹配时执行。
+路由定义采用以下结构：
 
-创建存储用户名密码的文件在home文件夹，一般是 C:\Documents and Settings\Administrator 下建立文件 .git-credentials （windows下不允许直接创建以.开头的文件</p>
+
+app.METHOD(PATH, HA</p>
         
     
-    <time datetime="2016-09-08T13:34:14.000Z" itemprop="datePublished">2016-09-08</time>
+    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/09/07/git tab 相关操作/" title="git tab 相关操作" itemprop="url">
+    <a href="/2017/03/23/expressjs-hello-world/" title="Express“Hello World”示例" itemprop="url">
   
-    <h1 itemprop="name">git tab 相关操作</h1>
+    <h1 itemprop="name">Express“Hello World”示例</h1>
     
      
-           <p itemprop="description" >标签可以针对某一时间点的版本做标记，常用于版本发布。
-列出标签$ git tag # 在控制台打印出当前仓库的所有标签
-$ git tag -l ‘v0.1.*’ # 搜索符合模式的标签
-打标签git标签分为两种类型：轻量标签和附注标签。轻量标签是指向提交对象的引用，附注标签则是</p>
+           <p itemprop="description" >Hello world 示例这基本上是您可以创建的最简单的 Express 应用程序。这是单个文件应用程序 &amp;mdash; 根本不需要动用 Express 生成器。Express 生成器的作用就像是为完整的应用程序建立一个“脚手架”，包含各种用途的 JavaScript 文件、J</p>
         
     
-    <time datetime="2016-09-07T03:49:31.000Z" itemprop="datePublished">2016-09-07</time>
+    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/09/05/Git分支管理策略/" title="Git分支管理策略" itemprop="url">
+    <a href="/2017/03/23/expressjs-static-files/" title="在 Express 中提供静态文件" itemprop="url">
   
-    <h1 itemprop="name">Git分支管理策略</h1>
+    <h1 itemprop="name">在 Express 中提供静态文件</h1>
     
      
-           <p itemprop="description" >如果你严肃对待编程，就必定会使用”版本管理系统”（Version Control System）。
-眼下最流行的”版本管理系统”，非Git莫属。
-相比同类软件，Git有很多优点。其中很显著的一点，就是版本的分支（branch）和合并（merge）十分方便。有些传统的版本管理软件，</p>
+           <p itemprop="description" >在 Express 中提供静态文件为了提供诸如图像、CSS 文件和 JavaScript 文件之类的静态文件，请使用 Express 中的 express.static 内置中间件函数。
+将包含静态资源的目录的名称传递给 express.static 中间件函数，以便开始直接提供</p>
         
     
-    <time datetime="2016-09-05T14:40:43.000Z" itemprop="datePublished">2016-09-05</time>
+    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/09/05/hello-world/" title="Hello World" itemprop="url">
+    <a href="/2017/03/17/git-合并指定分支的指定文件/" title="git  合并指定分支的指定文件" itemprop="url">
   
-    <h1 itemprop="name">Hello World</h1>
+    <h1 itemprop="name">git  合并指定分支的指定文件</h1>
     
      
-           <p itemprop="description" >Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the </p>
+           <p itemprop="description" >分支A_bracn和B_branch，只想将A_branch分支的某个文件f.txt合并到B_branch分支上。
+git checkout A_branch     // 切换到A分支；
+git checkout --patch B_branch f.txt  // 合并B分支</p>
         
     
-    <time datetime="2016-09-05T06:46:11.043Z" itemprop="datePublished">2016-09-05</time>
+    <time datetime="2017-03-17T03:10:28.000Z" itemprop="datePublished">2017-03-17</time>
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/09/02/jQuery.widget - 用法/" title="jQuery.widget - 用法" itemprop="url">
+    <a href="/2017/03/08/git-stash/" title="git stash" itemprop="url">
   
-    <h1 itemprop="name">jQuery.widget - 用法</h1>
+    <h1 itemprop="name">git stash</h1>
     
      
-           <p itemprop="description" >jQuery.widget - 用法jQuery UI 中包含许多保持状态的小部件，因此比典型的 jQuery 插件稍有不同的使用模式。所有的jQuery UI 小部件使用相同的模式，这是由部件库（Widget Factory）定义的。所以，只要您学会使用其中一个，您就知道如何使</p>
+           <p itemprop="description" >git stash命令用于将本地变更挂起。
+// 暂存当前状态
+# git stash
+
+// 查看当前工作区和版本库区别
+# git diff HEAD
+==&amp;gt; 此时什么都没有输出，说明工作区被重置为HEAD指向内容了
+
+// 显示已暂存列表
+# git stash li</p>
         
     
-    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
+    <time datetime="2017-03-08T02:33:06.000Z" itemprop="datePublished">2017-03-08</time>
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/09/02/DataTables - Jquery DataTables 基本设置/" title="npm package.json中的dependencies和devDependencies的区别" itemprop="url">
+    <a href="/2017/03/08/git-push/" title="git push" itemprop="url">
   
-    <h1 itemprop="name">npm package.json中的dependencies和devDependencies的区别</h1>
+    <h1 itemprop="name">git push</h1>
     
      
-           <p itemprop="description" >一个node package有两种依赖，一种是dependencies一种是devDependencies，其中前者依赖的项该是正常运行该包时所需要的依赖项，而后者则是开发的时候需要的依赖项，像一些进行单元测试之类的包。
-如果你将包下载下来在包的根目录里运行
-npm instal</p>
+           <p itemprop="description" >git push命令用于将本地分支的更新，推送到远程主机。它的格式与git pull命令相仿。
+$ git push &amp;lt;远程主机名&amp;gt; &amp;lt;本地分支名&amp;gt;:&amp;lt;远程分支名&amp;gt;
+
+注意，分支推送顺序的写法是&amp;lt;来源地&amp;gt;:&amp;lt;目的地&amp;gt;，所</p>
         
     
-    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
+    <time datetime="2017-03-08T02:20:06.000Z" itemprop="datePublished">2017-03-08</time>
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/09/02/SVG - 路径path的贝塞尔曲线指令/" title="SVG - 路径path的贝塞尔曲线指令" itemprop="url">
+    <a href="/2017/02/16/gulp-load-plugins-模块化管理插件/" title="gulp-load-plugins[模块化管理插件]" itemprop="url">
   
-    <h1 itemprop="name">SVG - 路径path的贝塞尔曲线指令</h1>
+    <h1 itemprop="name">gulp-load-plugins[模块化管理插件]</h1>
     
      
-           <p itemprop="description" >SVG - 路径path的贝塞尔曲线指令贝塞尔曲线基本概要“贝塞尔曲线” 可以绘制任何曲线，包括直线。
-贝塞尔曲线的兄弟姐妹有点多：线性贝塞尔曲线、二次方贝塞尔曲线、三次方贝塞尔曲线、四次方贝塞尔曲线、五次方贝塞尔曲线、……。
-
-线性贝塞尔曲线演示动画，t在[0,1]区间
-
-二次</p>
+           <p itemprop="description" >一般情况下，gulpfile.js中的模块需要一个个加载。
+var gulp = require(&amp;apos;gulp&amp;apos;),
+    jshint = require(&amp;apos;gulp-jshint&amp;apos;),
+    uglify = require(&amp;apo</p>
         
     
-    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
+    <time datetime="2017-02-16T08:03:05.000Z" itemprop="datePublished">2017-02-16</time>
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/09/02/SVG - 参考手册/" title="SVG - 参考手册" itemprop="url">
+    <a href="/2016/12/15/npm安装笔记/" title="npm安装笔记" itemprop="url">
   
-    <h1 itemprop="name">SVG - 参考手册</h1>
+    <h1 itemprop="name">npm安装笔记</h1>
     
      
-           <p itemprop="description" >SVG - 参考手册SVG 元素            元素      说明      属性              &amp;lt;a&amp;gt;      创建一个SVG元素周围链接      xlink:show        xlink:actuate        xlink:h</p>
+           <p itemprop="description" >npm安装打开 https://github.com/npm/npm
+git clone https://github.com/npm/npm.git
+下载完成后，打开nodejs命令行窗口(Node.js command prompt)，进入到npm的代码文件夹下，使用下边命令</p>
         
     
-    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
+    <time datetime="2016-12-15T06:38:24.000Z" itemprop="datePublished">2016-12-15</time>
   </a>
 </section>
 
 
   <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </div>
@@ -242,6 +267,8 @@ npm instal</p>
 		
 			<li><a href="/tags/DataTables/" title="DataTables">DataTables<sup>1</sup></a></li>
 		
+			<li><a href="/tags/Express/" title="Express">Express<sup>5</sup></a></li>
+		
 			<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
 		
 			<li><a href="/tags/YUIDoc/" title="YUIDoc">YUIDoc<sup>1</sup></a></li>
@@ -250,9 +277,11 @@ npm instal</p>
 		
 			<li><a href="/tags/gem/" title="gem">gem<sup>1</sup></a></li>
 		
-			<li><a href="/tags/git/" title="git">git<sup>9</sup></a></li>
+			<li><a href="/tags/git/" title="git">git<sup>12</sup></a></li>
 		
 			<li><a href="/tags/grunt/" title="grunt">grunt<sup>3</sup></a></li>
+		
+			<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
 		
 			<li><a href="/tags/hexo/" title="hexo">hexo<sup>2</sup></a></li>
 		
@@ -264,11 +293,13 @@ npm instal</p>
 		
 			<li><a href="/tags/jshint/" title="jshint">jshint<sup>1</sup></a></li>
 		
-			<li><a href="/tags/mocha/" title="mocha">mocha<sup>1</sup></a></li>
+			<li><a href="/tags/karma/" title="karma">karma<sup>1</sup></a></li>
 		
-			<li><a href="/tags/node/" title="node">node<sup>1</sup></a></li>
+			<li><a href="/tags/mocha/" title="mocha">mocha<sup>3</sup></a></li>
 		
-			<li><a href="/tags/npm/" title="npm">npm<sup>1</sup></a></li>
+			<li><a href="/tags/node/" title="node">node<sup>2</sup></a></li>
+		
+			<li><a href="/tags/npm/" title="npm">npm<sup>2</sup></a></li>
 		
 			<li><a href="/tags/package/" title="package">package<sup>1</sup></a></li>
 		
@@ -288,7 +319,7 @@ npm instal</p>
 		
 			<li><a href="/tags/webStorm/" title="webStorm">webStorm<sup>1</sup></a></li>
 		
-			<li><a href="/tags/webpack/" title="webpack">webpack<sup>2</sup></a></li>
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>4</sup></a></li>
 		
 			<li><a href="/tags/widget/" title="widget">widget<sup>1</sup></a></li>
 		
@@ -320,7 +351,7 @@ npm instal</p>
 		
 		
 	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
 		
 		<a href="https://emila-github.github.io" target="_blank" title="emila">emila</a>
 		

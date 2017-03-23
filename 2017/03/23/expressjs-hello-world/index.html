@@ -1,0 +1,404 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Express“Hello World”示例 | emila</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="emila">
+    
+    <meta name="description" content="Hello world 示例这基本上是您可以创建的最简单的 Express 应用程序。这是单个文件应用程序 &amp;mdash; 根本不需要动用 Express 生成器。Express 生成器的作用就像是为完整的应用程序建立一个“脚手架”，包含各种用途的 JavaScript 文件、Jade 模板和子目录">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="emila" title="emila"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="emila">emila</a></h1>
+				<h2 class="blog-motto">simple and easy to study</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:emila-github.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/23/expressjs-hello-world/" title="Express“Hello World”示例" itemprop="url">Express“Hello World”示例</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://emila-github.github.io" title="emila">emila</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
+    更新日期:<time datetime="2017-03-23T07:35:41.713Z" itemprop="dateModified">2017-03-23</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hello-world-示例"><span class="toc-number">1.</span> <span class="toc-text">Hello world 示例</span></a></li></ol>
+		</div>
+		
+		<h1 id="Hello-world-示例"><a href="#Hello-world-示例" class="headerlink" title="Hello world 示例"></a>Hello world 示例</h1><div class="doc-box doc-info" markdown="1"><br>这基本上是您可以创建的最简单的 Express 应用程序。这是单个文件应用程序 &mdash; 根本<em>不</em>需要动用 <a href="//starter/generator.html">Express 生成器</a>。Express 生成器的作用就像是为完整的应用程序建立一个“脚手架”，包含各种用途的 JavaScript 文件、Jade 模板和子目录。<br></div>
+
+<p>首先创建名为 <code>myapp</code> 的目录，切换到此目录，然后运行 <code>npm init</code>。根据<a href="//starter/installing.html">安装指南</a>将 <code>express</code> 安装为依赖项。</p>
+<p>在 <code>myapp</code> 目录中，创建名为 <code>app.js</code> 的文件，然后添加以下代码：</p>
+<pre>
+<code class="language-javascript" translate="no">
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});
+</code>
+</pre>
+
+<p>应用程序会启动服务器，并在端口 3000 上侦听连接。此应用程序以“Hello World!”响应针对根 URL (<code>/</code>) 或<em>路由</em>的请求。对于其他所有路径，它将以 <strong>404 Not Found</strong> 进行响应。</p>
+<div class="doc-box doc-notice" markdown="1"><br><code>req</code>（请求）和 <code>res</code>（响应）与 Node 提供的对象完全相同，所以您可以在不涉及 Express 的情况下调用 <code>req.pipe()</code>、<code>req.on(&#39;data&#39;, callback)</code> 和要执行的其他任何函数。<br></div>
+
+<p>使用以下命令运行应用程序：</p>
+<pre>
+<code class="language-sh" translate="no">
+$ node app.js
+</code>
+</pre>
+
+<p>然后，在浏览器中装入 <a href="http://localhost:3000/" target="_blank" rel="external">http://localhost:3000/</a> 以查看输出。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Express/">Express</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="https://emila-github.github.io/2017/03/23/expressjs-hello-world/" data-title="Express“Hello World”示例 | emila" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/03/23/expressjs-basic-routing/" title="Express 基本路由">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Express 基本路由</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/03/23/expressjs-static-files/"  title="在 Express 中提供静态文件">
+ <strong>NEXT:</strong><br/> 
+ <span>在 Express 中提供静态文件
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hello-world-示例"><span class="toc-number">1.</span> <span class="toc-text">Hello world 示例</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/DataTables/" title="DataTables">DataTables<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Express/" title="Express">Express<sup>5</sup></a></li>
+		
+			<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
+		
+			<li><a href="/tags/YUIDoc/" title="YUIDoc">YUIDoc<sup>1</sup></a></li>
+		
+			<li><a href="/tags/chai/" title="chai">chai<sup>1</sup></a></li>
+		
+			<li><a href="/tags/gem/" title="gem">gem<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>12</sup></a></li>
+		
+			<li><a href="/tags/grunt/" title="grunt">grunt<sup>3</sup></a></li>
+		
+			<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>2</sup></a></li>
+		
+			<li><a href="/tags/html-webpack-plugin/" title="html-webpack-plugin">html-webpack-plugin<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jquery/" title="jquery">jquery<sup>3</sup></a></li>
+		
+			<li><a href="/tags/jsdocs/" title="jsdocs">jsdocs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jshint/" title="jshint">jshint<sup>1</sup></a></li>
+		
+			<li><a href="/tags/karma/" title="karma">karma<sup>1</sup></a></li>
+		
+			<li><a href="/tags/mocha/" title="mocha">mocha<sup>3</sup></a></li>
+		
+			<li><a href="/tags/node/" title="node">node<sup>2</sup></a></li>
+		
+			<li><a href="/tags/npm/" title="npm">npm<sup>2</sup></a></li>
+		
+			<li><a href="/tags/package/" title="package">package<sup>1</sup></a></li>
+		
+			<li><a href="/tags/path/" title="path">path<sup>1</sup></a></li>
+		
+			<li><a href="/tags/spmjs/" title="spmjs">spmjs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/sublime/" title="sublime">sublime<sup>1</sup></a></li>
+		
+			<li><a href="/tags/svg/" title="svg">svg<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+		
+			<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+			<li><a href="/tags/virtualbox/" title="virtualbox">virtualbox<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webStorm/" title="webStorm">webStorm<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>4</sup></a></li>
+		
+			<li><a href="/tags/widget/" title="widget">widget<sup>1</sup></a></li>
+		
+			<li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="https://emila-github.github.io" target="_blank" title="emila">emila</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"emila"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

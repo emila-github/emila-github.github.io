@@ -1,0 +1,429 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>在 Express 中提供静态文件 | emila</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="emila">
+    
+    <meta name="description" content="在 Express 中提供静态文件为了提供诸如图像、CSS 文件和 JavaScript 文件之类的静态文件，请使用 Express 中的 express.static 内置中间件函数。
+将包含静态资源的目录的名称传递给 express.static 中间件函数，以便开始直接提供这些文件。例如，使用">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="emila" title="emila"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="emila">emila</a></h1>
+				<h2 class="blog-motto">simple and easy to study</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:emila-github.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/23/expressjs-static-files/" title="在 Express 中提供静态文件" itemprop="url">在 Express 中提供静态文件</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://emila-github.github.io" title="emila">emila</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
+    更新日期:<time datetime="2017-03-23T07:36:04.931Z" itemprop="dateModified">2017-03-23</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#在-Express-中提供静态文件"><span class="toc-number">1.</span> <span class="toc-text">在 Express 中提供静态文件</span></a></li></ol>
+		</div>
+		
+		<h1 id="在-Express-中提供静态文件"><a href="#在-Express-中提供静态文件" class="headerlink" title="在 Express 中提供静态文件"></a>在 Express 中提供静态文件</h1><p>为了提供诸如图像、CSS 文件和 JavaScript 文件之类的静态文件，请使用 Express 中的 <code>express.static</code> 内置中间件函数。</p>
+<p>将包含静态资源的目录的名称传递给 <code>express.static</code> 中间件函数，以便开始直接提供这些文件。例如，使用以下代码在名为 <code>public</code> 的目录中提供图像、CSS 文件和 JavaScript 文件：</p>
+<pre>
+<code class="language-javascript" translate="no">
+app.use(express.static('public'));
+</code>
+</pre>
+
+<p>现在，可以装入位于 <code>public</code> 目录中的文件：</p>
+<pre>
+<code class="language-javascript" translate="no">
+http://localhost:3000/images/kitten.jpg
+http://localhost:3000/css/style.css
+http://localhost:3000/js/app.js
+http://localhost:3000/images/bg.png
+http://localhost:3000/hello.html
+</code>
+</pre>
+
+<div class="doc-box doc-info"><br>Express 相对于静态目录查找文件，因此静态目录的名称不是此 URL 的一部分。<br></div>
+
+<p>要使用多个静态资源目录，请多次调用 <code>express.static</code> 中间件函数：</p>
+<pre>
+<code class="language-javascript" translate="no">
+app.use(express.static('public'));
+app.use(express.static('files'));
+</code>
+</pre>
+
+<p>Express 以您使用 <code>express.static</code> 中间件函数设置静态目录的顺序来查找文件。</p>
+<p>要为 <code>express.static</code> 函数提供的文件创建虚拟路径前缀（路径并不实际存在于文件系统中），请为静态目录<a href="//4x/api.html#app.use">指定安装路径</a>，如下所示：</p>
+<pre>
+<code class="language-javascript" translate="no">
+app.use('/static', express.static('public'));
+</code>
+</pre>
+
+<p>现在，可以装入具有 <code>/static</code> 路径前缀的 <code>public</code> 目录中的文件。</p>
+<pre>
+<code class="language-javascript" translate="no">
+http://localhost:3000/static/images/kitten.jpg
+http://localhost:3000/static/css/style.css
+http://localhost:3000/static/js/app.js
+http://localhost:3000/static/images/bg.png
+http://localhost:3000/static/hello.html
+</code>
+</pre>
+
+<p>然而，向 <code>express.static</code> 函数提供的路径相对于您在其中启动 <code>node</code> 进程的目录。如果从另一个目录运行 Express 应用程序，那么对于提供资源的目录使用绝对路径会更安全：</p>
+<pre>
+<code class="language-javascript" translate="no">
+app.use('/static', express.static(__dirname + '/public'));
+</code>
+</pre>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Express/">Express</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="https://emila-github.github.io/2017/03/23/expressjs-static-files/" data-title="在 Express 中提供静态文件 | emila" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/03/23/expressjs-hello-world/" title="Express“Hello World”示例">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Express“Hello World”示例</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/03/17/git-合并指定分支的指定文件/"  title="git  合并指定分支的指定文件">
+ <strong>NEXT:</strong><br/> 
+ <span>git  合并指定分支的指定文件
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#在-Express-中提供静态文件"><span class="toc-number">1.</span> <span class="toc-text">在 Express 中提供静态文件</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/DataTables/" title="DataTables">DataTables<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Express/" title="Express">Express<sup>5</sup></a></li>
+		
+			<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
+		
+			<li><a href="/tags/YUIDoc/" title="YUIDoc">YUIDoc<sup>1</sup></a></li>
+		
+			<li><a href="/tags/chai/" title="chai">chai<sup>1</sup></a></li>
+		
+			<li><a href="/tags/gem/" title="gem">gem<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>12</sup></a></li>
+		
+			<li><a href="/tags/grunt/" title="grunt">grunt<sup>3</sup></a></li>
+		
+			<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>2</sup></a></li>
+		
+			<li><a href="/tags/html-webpack-plugin/" title="html-webpack-plugin">html-webpack-plugin<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jquery/" title="jquery">jquery<sup>3</sup></a></li>
+		
+			<li><a href="/tags/jsdocs/" title="jsdocs">jsdocs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jshint/" title="jshint">jshint<sup>1</sup></a></li>
+		
+			<li><a href="/tags/karma/" title="karma">karma<sup>1</sup></a></li>
+		
+			<li><a href="/tags/mocha/" title="mocha">mocha<sup>3</sup></a></li>
+		
+			<li><a href="/tags/node/" title="node">node<sup>2</sup></a></li>
+		
+			<li><a href="/tags/npm/" title="npm">npm<sup>2</sup></a></li>
+		
+			<li><a href="/tags/package/" title="package">package<sup>1</sup></a></li>
+		
+			<li><a href="/tags/path/" title="path">path<sup>1</sup></a></li>
+		
+			<li><a href="/tags/spmjs/" title="spmjs">spmjs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/sublime/" title="sublime">sublime<sup>1</sup></a></li>
+		
+			<li><a href="/tags/svg/" title="svg">svg<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+		
+			<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+			<li><a href="/tags/virtualbox/" title="virtualbox">virtualbox<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webStorm/" title="webStorm">webStorm<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>4</sup></a></li>
+		
+			<li><a href="/tags/widget/" title="widget">widget<sup>1</sup></a></li>
+		
+			<li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="https://emila-github.github.io" target="_blank" title="emila">emila</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"emila"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>
