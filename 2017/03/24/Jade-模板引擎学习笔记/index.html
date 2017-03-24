@@ -4,20 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>安装 Express | emila</title>
+    <title>Jade-模板引擎学习笔记 | emila</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="emila">
     
-    <meta name="description" content="安装假设您已经安装了 Node.js，创建目录以保存应用程序，并将其设置为工作目录。
-
-
-$ mkdir myapp
-$ cd myapp
-
-
-
-使用 npm init 命令为应用程序创建 package.json 文件。有关 package.json 工作方式的更多信息，请参阅 Specifics">
+    <meta name="description" content="jade 是 node 上一个常用的 html 模板语言，在咱项目里用来做 html 预处理语言，主要目的是减少代码量，同时让代码结构更清晰。jade 更名为 pug
+基础语法规则
+缩进代表嵌套
+每行以第一个空格为“分割符”之前的字符串（这部分暂称为 “tag-string”）编译为一个 html ">
     
     
     
@@ -73,15 +68,15 @@ $ cd myapp
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/23/expressjs-installing/" title="安装 Express" itemprop="url">安装 Express</a>
+      <a href="/2017/03/24/Jade-模板引擎学习笔记/" title="Jade-模板引擎学习笔记" itemprop="url">Jade-模板引擎学习笔记</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://emila-github.github.io" title="emila">emila</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
-    更新日期:<time datetime="2017-03-23T07:27:55.396Z" itemprop="dateModified">2017-03-23</time>
+    <time datetime="2017-03-24T03:42:05.000Z" itemprop="datePublished">2017-03-24</time>
+    更新日期:<time datetime="2017-03-24T06:02:43.993Z" itemprop="dateModified">2017-03-24</time>
     
   </p>
 </header>
@@ -90,51 +85,97 @@ $ cd myapp
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#帮助文档"><span class="toc-number">1.1.</span> <span class="toc-text">帮助文档</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础语法规则"><span class="toc-number">1.</span> <span class="toc-text">基础语法规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例一"><span class="toc-number">1.1.</span> <span class="toc-text">例一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例二"><span class="toc-number">1.2.</span> <span class="toc-text">例二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板功能简介"><span class="toc-number">2.</span> <span class="toc-text">模板功能简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#include"><span class="toc-number">2.1.</span> <span class="toc-text">include</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#extend-amp-block"><span class="toc-number">2.2.</span> <span class="toc-text">extend & block</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
 		</div>
 		
-		<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>假设您已经安装了 <a href="https://nodejs.org/" target="_blank" rel="external">Node.js</a>，创建目录以保存应用程序，并将其设置为工作目录。</p>
-<pre>
-<code class="language-sh" translate="no">
-$ mkdir myapp
-$ cd myapp
-</code>
-</pre>
-
-<p>使用 <code>npm init</code> 命令为应用程序创建 <code>package.json</code> 文件。<br>有关 <code>package.json</code> 工作方式的更多信息，请参阅 <a href="https://docs.npmjs.com/files/package.json" target="_blank" rel="external">Specifics of npm’s package.json handling</a>。</p>
-<pre>
-<code class="language-sh" translate="no">
-$ npm init
-</code>
-</pre>
-
-<p>此命令提示您输入若干项，例如应用程序的名称和版本。<br>现在，只需按回车键以接受其中大多数项的缺省值，但以下情况例外：</p>
-<pre>
-<code class="language-sh" translate="no">
-entry point: (index.js)
-</code>
-</pre>
-
-<p>输入 <code>app.js</code>，或者您希望使用的任何主文件名称。如果希望文件名为 <code>index.js</code>，请按回车键以接受建议的缺省文件名。</p>
-<p>在 <code>app</code> 目录中安装 Express，然后将其保存在依赖项列表中。例如：</p>
-<pre>
-<code class="language-sh" translate="no">
-$ npm install express --save
-</code>
-</pre>
-
-<p>要暂时安装 Express 而不将其添加到依赖项列表中，请省略 <code>--save</code> 选项：</p>
-<pre>
-<code class="language-sh" translate="no">
-$ npm install express
-</code>
-</pre>
-
-<div class="doc-box doc-info" markdown="1"><br>采用 <code>--save</code> 选项安装的 Node 模块已添加到 <code>package.json</code> 文件中的 <code>dependencies</code> 列表。<br>今后运行 <code>app</code> 目录中的 <code>npm install</code> 将自动安装依赖项列表中的模块。<br></div>
-
-
-<h2 id="帮助文档"><a href="#帮助文档" class="headerlink" title="帮助文档"></a>帮助文档</h2><ul>
-<li><a href="http://www.expressjs.com.cn/starter/installing.html" target="_blank" rel="external">安装</a></li>
+		<p>jade 是 node 上一个常用的 html 模板语言，在咱项目里用来做 html 预处理语言，主要目的是减少代码量，同时让代码结构更清晰。<br><strong>jade 更名为 pug</strong></p>
+<h2 id="基础语法规则"><a href="#基础语法规则" class="headerlink" title="基础语法规则"></a>基础语法规则</h2><ol>
+<li>缩进代表嵌套</li>
+<li>每行<strong>以第一个空格</strong>为“分割符”之前的字符串（这部分暂称为 “tag-string”）编译为一个 html tag（以下简称 tag ），此空格之后的所有字符都<strong>原封不动</strong>的装进这个 tag 里</li>
+<li>使用css里的 <code>.class</code> 和 <code>#id</code> 的语法，直接用这两种语法开头的话可以省略 <code>div</code></li>
+<li>html attribute 可以写在括号”()”里跟在 tag-string 后面，此时括号内的空格不会被前述的第二条规则计算为“分割符”</li>
+<li><code>|</code> 处在行首，表示该行不做编译处理</li>
+</ol>
+<h3 id="例一"><a href="#例一" class="headerlink" title="例一"></a>例一</h3><p>jade: </p>
+<pre><code>// e.g. I
+// 规则 1 + 规则 4
+div
+  span
+    input(type=&quot;text&quot; required placeholder=&quot;Name&quot;)
+</code></pre><p>html:</p>
+<pre><code>&lt;-- e.g. I --&gt;
+&lt;div&gt;
+  &lt;span&gt;
+    &lt;input type=&quot;text&quot; required placeholder=&quot;Name&quot;/&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
+</code></pre><h3 id="例二"><a href="#例二" class="headerlink" title="例二"></a>例二</h3><p>jade: </p>
+<pre><code>// e.g. II
+// 规则 2 + 规则 3 + 规则 5
+#greeting.bold-text &lt;span class=&quot;blue&quot;&gt;Hello&lt;/span&gt;, &lt;br&gt;
+  br
+  span.red(id=&quot;additional-id&quot;)
+    world!
+    i Yeah, 
+  |I&apos;m good!
+</code></pre><p>html:</p>
+<pre><code>&lt;-- e.g. II --&gt;
+&lt;div id=&quot;greeting&quot; class=&quot;bold-text&quot;&gt;
+  &lt;span class=&quot;blue&quot;&gt;Hello&lt;/span&gt;,
+  &lt;br&gt;
+  &lt;br&gt;
+  &lt;span class=&quot;red&quot; id=&quot;additional-id&quot;&gt;world!
+    &lt;i&gt;Yeah,&lt;/i&gt;
+  &lt;/span&gt;
+  I&apos;m good!
+&lt;/div&gt;
+</code></pre><h2 id="模板功能简介"><a href="#模板功能简介" class="headerlink" title="模板功能简介"></a>模板功能简介</h2><p>jade 使用这么几个关键词来承担模板功能：</p>
+<ol>
+<li>include</li>
+<li>extend</li>
+<li>block</li>
+</ol>
+<p>其后跟着的无论标记名还是 jade 文件的路径名都不必加引号 “” 且<code>.jade</code>后缀名可省略。</p>
+<h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><p><code>include</code> 就是在此插入另一个文件里写的 jade 代码段</p>
+<p>include的例子：</p>
+<pre><code>//- index.jade
+doctype html
+html
+    include ./layout/header.jade
+    body
+    h1 include demo
+    p content
+    include ./layout/footer.jade
+</code></pre><h3 id="extend-amp-block"><a href="#extend-amp-block" class="headerlink" title="extend &amp; block"></a>extend &amp; block</h3><p>这两个关键词通常成对出现。</p>
+<p>举例讲，你可以先写一个 <code>root/path/template/layout.jade</code>:</p>
+<pre><code>doctype html
+html
+ head
+  block title
+   title默认内容
+ body
+  block content
+  script(type=&quot;text/javascript&quot; src=&quot;js/jquery.js&quot;)
+</code></pre><p>之后写别的页面就可以通过 extend 将 <code>layout.jade</code> 作为“母板”，从而省去重复的部分，而通过 block 来提供变化的部分</p>
+<p>例如新建页面 <code>root/path/index.html</code>:</p>
+<pre><code>extend template/layout
+//- 进行替换
+block title
+ title新内容
+//- 进行替换
+block content
+  h1 Hello, world!
+</code></pre><p>这样等价于写：</p>
+<pre><code>doctype html
+html
+ head
+  title新内容
+ body
+  h1 Hello, world!
+  script(type=&quot;text/javascript&quot; src=&quot;js/jquery.js&quot;)
+</code></pre><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://github.com/kelexx/devnotes/wiki/Jade-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B" target="_blank" rel="external">Jade-简明教程</a></li>
+<li><a href="http://jade-lang.com/" target="_blank" rel="external">jade 官网</a></li>
 </ul>
   
 	</div>
@@ -142,7 +183,7 @@ $ npm install express
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Express/">Express</a>
+  <span></span> <a href="/tags/Jade/">Jade</a><a href="/tags/模板引擎/">模板引擎</a>
   </div>
 
 
@@ -150,7 +191,7 @@ $ npm install express
 
 <div class="article-share" id="share">
 
-  <div data-url="https://emila-github.github.io/2017/03/23/expressjs-installing/" data-title="安装 Express | emila" data-tsina="null" class="share clearfix">
+  <div data-url="https://emila-github.github.io/2017/03/24/Jade-模板引擎学习笔记/" data-title="Jade-模板引擎学习笔记 | emila" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -159,19 +200,11 @@ $ npm install express
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/23/expressjs-hello-world/" title="Express“Hello World”示例">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  Express“Hello World”示例</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/17/git-合并指定分支的指定文件/"  title="git  合并指定分支的指定文件">
+<a href="/2017/03/24/git - 看某次commit改了哪些文件/"  title="git 看某次commit改了哪些文件">
  <strong>NEXT:</strong><br/> 
- <span>git  合并指定分支的指定文件
+ <span>git 看某次commit改了哪些文件
 </span>
 </a>
 </div>
@@ -188,7 +221,7 @@ $ npm install express
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#帮助文档"><span class="toc-number">1.1.</span> <span class="toc-text">帮助文档</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础语法规则"><span class="toc-number">1.</span> <span class="toc-text">基础语法规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例一"><span class="toc-number">1.1.</span> <span class="toc-text">例一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例二"><span class="toc-number">1.2.</span> <span class="toc-text">例二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板功能简介"><span class="toc-number">2.</span> <span class="toc-text">模板功能简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#include"><span class="toc-number">2.1.</span> <span class="toc-text">include</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#extend-amp-block"><span class="toc-number">2.2.</span> <span class="toc-text">extend & block</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
   </div>
 
 <div id="asidepart">
