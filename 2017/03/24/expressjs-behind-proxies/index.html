@@ -1,0 +1,383 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>为 Express 设置代理 | emila</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="emila">
+    
+    <meta name="description" content="为 Express 设置代理在代理背后运行 Express 应用程序时，可使用 app.set()) 将应用程序变量 trust proxy 设置为下表中所列的某个值。
+尽管不设置应用程序变量 trust proxy 该应用程序也不会运行失败，但是它会误将代理的 IP 地址注册为客户机 IP 地址（">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="emila" title="emila"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="emila">emila</a></h1>
+				<h2 class="blog-motto">simple and easy to study</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:emila-github.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/24/expressjs-behind-proxies/" title="为 Express 设置代理" itemprop="url">为 Express 设置代理</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://emila-github.github.io" title="emila">emila</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-03-24T07:42:05.000Z" itemprop="datePublished">2017-03-24</time>
+    更新日期:<time datetime="2017-03-24T10:26:19.205Z" itemprop="dateModified">2017-03-24</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为-Express-设置代理"><span class="toc-number">1.</span> <span class="toc-text">为 Express 设置代理</span></a></li></ol>
+		</div>
+		
+		<h1 id="为-Express-设置代理"><a href="#为-Express-设置代理" class="headerlink" title="为 Express 设置代理"></a>为 Express 设置代理</h1><p>在代理背后运行 Express 应用程序时，可使用 <a href="//4x/api.html#app.set">app.set()</a>) 将应用程序变量 <code>trust proxy</code> 设置为下表中所列的某个值。</p>
+<div class="doc-box doc-info" markdown="1"><br>尽管不设置应用程序变量 <code>trust proxy</code> 该应用程序也不会运行失败，但是它会误将代理的 IP 地址注册为客户机 IP 地址（除非配置了 <code>trust proxy</code>）。<br></div>
+
+<table class="doctable" border="1" markdown="1"><br>  <thead><tr><th>类型</th><th>值</th></tr></thead><br>  <tbody><br>    <tr><br>      <td>布尔</td><br><td markdown="1"><br>如果为 <code>true</code>，那么客户机的 IP 地址将用作 <code>X-Forwarded-*</code> 头中最左侧的条目。<br>如果为 <code>false</code>，那么该应用程序将被视为直接面对因特网，而客户机的 IP 地址则派生自 <code>req.connection.remoteAddress</code>。这是缺省设置。<br></td><br>    </tr><br>    <tr><br>      <td>IP 地址</td><br><td markdown="1"><br>要信任的 IP 地址、子网或者一组 IP 地址与子网。以下列表显示预先配置的子网名称：<br><em> loopback - <code>127.0.0.1/8</code> 或 <code>::1/128</code>
+</em> linklocal - <code>169.254.0.0/16</code> 或 <code>fe80::/10</code><br>* uniquelocal - <code>10.0.0.0/8</code>、<code>172.16.0.0/12</code>、<code>192.168.0.0/16</code> 或 <code>fc00::/7</code><br><br>您可以按以下某种方法设置 IP 地址：<br><br><pre><br><code class="language-js" translate="no">app.set(‘trust proxy’, ‘loopback’) // specify a single subnet<br>app.set(‘trust proxy’, ‘loopback, 123.123.123.123’) // specify a subnet and an address<br>app.set(‘trust proxy’, ‘loopback, linklocal, uniquelocal’) // specify multiple subnets as CSV<br>app.set(‘trust proxy’, [‘loopback’, ‘linklocal’, ‘uniquelocal’]) // specify multiple subnets as an array</code><br></pre><br><br>如果指定 IP 地址或子网，那么会在地址确定过程中排除这些项，而将最接近应用程序服务器的不受信任的 IP 地址确定为客户机的 IP 地址。<br></td><br>    </tr><br>    <tr><br>      <td>数字</td><br><td markdown="1"><br>信任来自正面代理服务器的第 <code>n</code> 个中继段，以此作为客户机。<br></td><br>    </tr><br>    <tr><br>      <td>函数</td><br><td markdown="1"><br>定制信任实现。仅当您知道自己要做什么时，方可使用该选项。<br><pre><br><code class="language-js" translate="no">app.set(‘trust proxy’, function (ip) {<br>  if (ip === ‘127.0.0.1’ || ip === ‘123.123.123.123’) return true; // trusted IPs<br>  else return false;<br>});</code><br></pre><br></td><br>    </tr><br>  </tbody><br></table>
+
+<p>设置非 <code>false</code> <code>trust proxy</code> 值会导致三个重大变化：</p>
+<ul><br>  <li markdown="1"><a href="//api.html#req.hostname">req.hostname</a> 的值派生自 <code>X-Forwarded-Host</code> 头中设置的值（可以由客户机或代理设置此值）。<br>  </li><br>  <li markdown="1"><code>X-Forwarded-Proto</code> 可以由逆向代理设置，以告知应用程序：它是 <code>https</code> 还是 <code>http</code>，或者甚至是无效名称。该值由 <a href="//api.html#req.protocol">req.protocol</a> 反映。<br>  </li><br>  <li markdown="1"><a href="//api.html#req.ip">req.ip</a> 和 <a href="//api.html#req.ips">req.ips</a> 值由 <code>X-Forwarded-For</code> 的地址列表填充。<br>  </li><br></ul>
+
+<p><code>trust proxy</code> 设置由使用 <a href="https://www.npmjs.com/package/proxy-addr" target="_blank" rel="external">proxy-addr</a> 包实现。有关更多信息，请参阅其文档。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Express/">Express</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="https://emila-github.github.io/2017/03/24/expressjs-behind-proxies/" data-title="为 Express 设置代理 | emila" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/03/24/expressjs-using-template-engines/"  title="在 Express 中使用模板引擎">
+ <strong>NEXT:</strong><br/> 
+ <span>在 Express 中使用模板引擎
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为-Express-设置代理"><span class="toc-number">1.</span> <span class="toc-text">为 Express 设置代理</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/DataTables/" title="DataTables">DataTables<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Express/" title="Express">Express<sup>11</sup></a></li>
+		
+			<li><a href="/tags/Jade/" title="Jade">Jade<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Sublime-Text/" title="Sublime Text">Sublime Text<sup>2</sup></a></li>
+		
+			<li><a href="/tags/YUIDoc/" title="YUIDoc">YUIDoc<sup>1</sup></a></li>
+		
+			<li><a href="/tags/chai/" title="chai">chai<sup>1</sup></a></li>
+		
+			<li><a href="/tags/gem/" title="gem">gem<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>13</sup></a></li>
+		
+			<li><a href="/tags/grunt/" title="grunt">grunt<sup>3</sup></a></li>
+		
+			<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>2</sup></a></li>
+		
+			<li><a href="/tags/html-webpack-plugin/" title="html-webpack-plugin">html-webpack-plugin<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jquery/" title="jquery">jquery<sup>3</sup></a></li>
+		
+			<li><a href="/tags/jsdocs/" title="jsdocs">jsdocs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jshint/" title="jshint">jshint<sup>1</sup></a></li>
+		
+			<li><a href="/tags/karma/" title="karma">karma<sup>1</sup></a></li>
+		
+			<li><a href="/tags/mocha/" title="mocha">mocha<sup>3</sup></a></li>
+		
+			<li><a href="/tags/node/" title="node">node<sup>2</sup></a></li>
+		
+			<li><a href="/tags/npm/" title="npm">npm<sup>2</sup></a></li>
+		
+			<li><a href="/tags/package/" title="package">package<sup>1</sup></a></li>
+		
+			<li><a href="/tags/path/" title="path">path<sup>1</sup></a></li>
+		
+			<li><a href="/tags/spmjs/" title="spmjs">spmjs<sup>1</sup></a></li>
+		
+			<li><a href="/tags/sublime/" title="sublime">sublime<sup>1</sup></a></li>
+		
+			<li><a href="/tags/svg/" title="svg">svg<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+		
+			<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+			<li><a href="/tags/virtualbox/" title="virtualbox">virtualbox<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webStorm/" title="webStorm">webStorm<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>4</sup></a></li>
+		
+			<li><a href="/tags/widget/" title="widget">widget<sup>1</sup></a></li>
+		
+			<li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li>
+		
+			<li><a href="/tags/模板引擎/" title="模板引擎">模板引擎<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="https://emila-github.github.io" target="_blank" title="emila">emila</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"emila"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

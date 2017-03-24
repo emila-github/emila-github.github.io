@@ -62,6 +62,53 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
+    <a href="/2017/03/24/expressjs-behind-proxies/" title="为 Express 设置代理" itemprop="url">
+  
+    <h1 itemprop="name">为 Express 设置代理</h1>
+    
+     
+           <p itemprop="description" >为 Express 设置代理在代理背后运行 Express 应用程序时，可使用 app.set()) 将应用程序变量 trust proxy 设置为下表中所列的某个值。
+尽管不设置应用程序变量 trust proxy 该应用程序也不会运行失败，但是它会误将代理的 IP 地址注册为</p>
+        
+    
+    <time datetime="2017-03-24T07:42:05.000Z" itemprop="datePublished">2017-03-24</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/03/24/expressjs-using-template-engines/" title="在 Express 中使用模板引擎" itemprop="url">
+  
+    <h1 itemprop="name">在 Express 中使用模板引擎</h1>
+    
+     
+           <p itemprop="description" >在 Express 中使用模板引擎在 Express 可以呈现模板文件之前，必须设置以下应用程序设置：
+
+views：模板文件所在目录。例如：app.set(&amp;#39;views&amp;#39;, &amp;#39;./views&amp;#39;)
+view engine：要使用的模板引擎。例如：a</p>
+        
+    
+    <time datetime="2017-03-24T07:42:05.000Z" itemprop="datePublished">2017-03-24</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/03/24/expressjs-using-middleware/" title="使用 Express 中间件" itemprop="url">
+  
+    <h1 itemprop="name">使用 Express 中间件</h1>
+    
+     
+           <p itemprop="description" >使用中间件Express 是一个路由和中间件 Web 框架，其自身只具有最低程度的功能：Express 应用程序基本上是一系列中间件函数调用。
+中间件函数能够访问请求对象 (req)、响应对象 (res) 以及应用程序的请求/响应循环中的下一个中间件函数。下一个中间件函数通常由名</p>
+        
+    
+    <time datetime="2017-03-24T07:42:05.000Z" itemprop="datePublished">2017-03-24</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
     <a href="/2017/03/24/expressjs-routing/" title="Express 路由" itemprop="url">
   
     <h1 itemprop="name">Express 路由</h1>
@@ -75,6 +122,39 @@ var express = require(&#39;express&#39;);
 var app = express();
 
 // respond w</p>
+        
+    
+    <time datetime="2017-03-24T07:42:05.000Z" itemprop="datePublished">2017-03-24</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/03/24/expressjs-debugging/" title="调试 Express" itemprop="url">
+  
+    <h1 itemprop="name">调试 Express</h1>
+    
+     
+           <p itemprop="description" >调试 ExpressExpress 在内部使用调试模块来记录关于路由匹配、使用的中间件函数、应用程序模式以及请求/响应循环流程的信息。
+debug 就像是扩充版的 console.log，但是与 console.log 不同，您不必注释掉生产代码中的 debug 日志。缺省情况下</p>
+        
+    
+    <time datetime="2017-03-24T07:42:05.000Z" itemprop="datePublished">2017-03-24</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/03/24/expressjs-error-handling/" title="Express 错误处理" itemprop="url">
+  
+    <h1 itemprop="name">Express 错误处理</h1>
+    
+     
+           <p itemprop="description" >错误处理错误处理中间件函数的定义方式与其他中间件函数基本相同，差别在于错误处理函数有四个自变量而不是三个：(err, req, res, next)：例如：
+
+
+app.use(function(err, req, res, next) {
+  console.error(err</p>
         
     
     <time datetime="2017-03-24T07:42:05.000Z" itemprop="datePublished">2017-03-24</time>
@@ -152,103 +232,6 @@ git log -p -2查看最近2次的更新内容</p>
   </a>
 </section>
 
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/03/23/expressjs-hello-world/" title="Express“Hello World”示例" itemprop="url">
-  
-    <h1 itemprop="name">Express“Hello World”示例</h1>
-    
-     
-           <p itemprop="description" >Hello world 示例这基本上是您可以创建的最简单的 Express 应用程序。这是单个文件应用程序 &amp;mdash; 根本不需要动用 Express 生成器。Express 生成器的作用就像是为完整的应用程序建立一个“脚手架”，包含各种用途的 JavaScript 文件、J</p>
-        
-    
-    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/03/23/expressjs-basic-routing/" title="Express 基本路由" itemprop="url">
-  
-    <h1 itemprop="name">Express 基本路由</h1>
-    
-     
-           <p itemprop="description" >基本路由路由用于确定应用程序如何响应对特定端点的客户机请求，包含一个 URI（或路径）和一个特定的 HTTP 请求方法（GET、POST 等）。
-每个路由可以具有一个或多个处理程序函数，这些函数在路由匹配时执行。
-路由定义采用以下结构：
-
-
-app.METHOD(PATH, HA</p>
-        
-    
-    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/03/23/expressjs-installing/" title="安装 Express" itemprop="url">
-  
-    <h1 itemprop="name">安装 Express</h1>
-    
-     
-           <p itemprop="description" >安装假设您已经安装了 Node.js，创建目录以保存应用程序，并将其设置为工作目录。
-
-
-$ mkdir myapp
-$ cd myapp
-
-
-
-使用 npm init 命令为应用程序创建 package.json 文件。有关 package.json 工作方式的更多信息，请参阅</p>
-        
-    
-    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/03/23/expressjs-static-files/" title="在 Express 中提供静态文件" itemprop="url">
-  
-    <h1 itemprop="name">在 Express 中提供静态文件</h1>
-    
-     
-           <p itemprop="description" >在 Express 中提供静态文件为了提供诸如图像、CSS 文件和 JavaScript 文件之类的静态文件，请使用 Express 中的 express.static 内置中间件函数。
-将包含静态资源的目录的名称传递给 express.static 中间件函数，以便开始直接提供</p>
-        
-    
-    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/03/23/expressjs-generator/" title="Express 应用程序生成器" itemprop="url">
-  
-    <h1 itemprop="name">Express 应用程序生成器</h1>
-    
-     
-           <p itemprop="description" >Express 应用程序生成器可使用应用程序生成器工具 (express) 快速创建应用程序框架。
-使用以下命令安装 express：
-
-
-$ npm install express-generator -g
-
-
-
-使用 -h 选项显示命令选项：
-
-
-$ express -h
-
-</p>
-        
-    
-    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
-  </a>
-</section>
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -270,7 +253,7 @@ $ express -h
 		
 			<li><a href="/tags/DataTables/" title="DataTables">DataTables<sup>1</sup></a></li>
 		
-			<li><a href="/tags/Express/" title="Express">Express<sup>6</sup></a></li>
+			<li><a href="/tags/Express/" title="Express">Express<sup>11</sup></a></li>
 		
 			<li><a href="/tags/Jade/" title="Jade">Jade<sup>1</sup></a></li>
 		
