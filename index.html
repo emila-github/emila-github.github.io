@@ -62,23 +62,18 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2017/03/23/expressjs-installing/" title="安装 Express" itemprop="url">
+    <a href="/2017/03/24/git - 看某次commit改了哪些文件/" title="git 看某次commit改了哪些文件" itemprop="url">
   
-    <h1 itemprop="name">安装 Express</h1>
+    <h1 itemprop="name">git 看某次commit改了哪些文件</h1>
     
      
-           <p itemprop="description" >安装假设您已经安装了 Node.js，创建目录以保存应用程序，并将其设置为工作目录。
-
-
-$ mkdir myapp
-$ cd myapp
-
-
-
-使用 npm init 命令为应用程序创建 package.json 文件。有关 package.json 工作方式的更多信息，请参阅</p>
+           <p itemprop="description" >git log 查看commit的历史
+git show 查看某次commit的修改内容
+git log -p 查看某个文件的修改历史
+git log -p -2查看最近2次的更新内容</p>
         
     
-    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
+    <time datetime="2017-03-24T00:42:05.000Z" itemprop="datePublished">2017-03-24</time>
   </a>
 </section>
 
@@ -111,17 +106,12 @@ $ express -h
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2017/03/23/expressjs-basic-routing/" title="Express 基本路由" itemprop="url">
+    <a href="/2017/03/23/expressjs-hello-world/" title="Express“Hello World”示例" itemprop="url">
   
-    <h1 itemprop="name">Express 基本路由</h1>
+    <h1 itemprop="name">Express“Hello World”示例</h1>
     
      
-           <p itemprop="description" >基本路由路由用于确定应用程序如何响应对特定端点的客户机请求，包含一个 URI（或路径）和一个特定的 HTTP 请求方法（GET、POST 等）。
-每个路由可以具有一个或多个处理程序函数，这些函数在路由匹配时执行。
-路由定义采用以下结构：
-
-
-app.METHOD(PATH, HA</p>
+           <p itemprop="description" >Hello world 示例这基本上是您可以创建的最简单的 Express 应用程序。这是单个文件应用程序 &amp;mdash; 根本不需要动用 Express 生成器。Express 生成器的作用就像是为完整的应用程序建立一个“脚手架”，包含各种用途的 JavaScript 文件、J</p>
         
     
     <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
@@ -130,12 +120,20 @@ app.METHOD(PATH, HA</p>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2017/03/23/expressjs-hello-world/" title="Express“Hello World”示例" itemprop="url">
+    <a href="/2017/03/23/expressjs-installing/" title="安装 Express" itemprop="url">
   
-    <h1 itemprop="name">Express“Hello World”示例</h1>
+    <h1 itemprop="name">安装 Express</h1>
     
      
-           <p itemprop="description" >Hello world 示例这基本上是您可以创建的最简单的 Express 应用程序。这是单个文件应用程序 &amp;mdash; 根本不需要动用 Express 生成器。Express 生成器的作用就像是为完整的应用程序建立一个“脚手架”，包含各种用途的 JavaScript 文件、J</p>
+           <p itemprop="description" >安装假设您已经安装了 Node.js，创建目录以保存应用程序，并将其设置为工作目录。
+
+
+$ mkdir myapp
+$ cd myapp
+
+
+
+使用 npm init 命令为应用程序创建 package.json 文件。有关 package.json 工作方式的更多信息，请参阅</p>
         
     
     <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
@@ -151,6 +149,25 @@ app.METHOD(PATH, HA</p>
      
            <p itemprop="description" >在 Express 中提供静态文件为了提供诸如图像、CSS 文件和 JavaScript 文件之类的静态文件，请使用 Express 中的 express.static 内置中间件函数。
 将包含静态资源的目录的名称传递给 express.static 中间件函数，以便开始直接提供</p>
+        
+    
+    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/03/23/expressjs-basic-routing/" title="Express 基本路由" itemprop="url">
+  
+    <h1 itemprop="name">Express 基本路由</h1>
+    
+     
+           <p itemprop="description" >基本路由路由用于确定应用程序如何响应对特定端点的客户机请求，包含一个 URI（或路径）和一个特定的 HTTP 请求方法（GET、POST 等）。
+每个路由可以具有一个或多个处理程序函数，这些函数在路由匹配时执行。
+路由定义采用以下结构：
+
+
+app.METHOD(PATH, HA</p>
         
     
     <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
@@ -230,22 +247,6 @@ var gulp = require(&amp;apos;gulp&amp;apos;),
   </a>
 </section>
 
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/12/15/npm安装笔记/" title="npm安装笔记" itemprop="url">
-  
-    <h1 itemprop="name">npm安装笔记</h1>
-    
-     
-           <p itemprop="description" >npm安装打开 https://github.com/npm/npm
-git clone https://github.com/npm/npm.git
-下载完成后，打开nodejs命令行窗口(Node.js command prompt)，进入到npm的代码文件夹下，使用下边命令</p>
-        
-    
-    <time datetime="2016-12-15T06:38:24.000Z" itemprop="datePublished">2016-12-15</time>
-  </a>
-</section>
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -277,7 +278,7 @@ git clone https://github.com/npm/npm.git
 		
 			<li><a href="/tags/gem/" title="gem">gem<sup>1</sup></a></li>
 		
-			<li><a href="/tags/git/" title="git">git<sup>12</sup></a></li>
+			<li><a href="/tags/git/" title="git">git<sup>13</sup></a></li>
 		
 			<li><a href="/tags/grunt/" title="grunt">grunt<sup>3</sup></a></li>
 		
