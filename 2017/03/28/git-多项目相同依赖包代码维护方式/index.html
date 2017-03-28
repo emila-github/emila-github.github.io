@@ -4,13 +4,16 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>为 Express 设置代理 | emila</title>
+    <title>git-多项目相同依赖包代码维护方式 | emila</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="emila">
     
-    <meta name="description" content="为 Express 设置代理在代理背后运行 Express 应用程序时，可使用 app.set()) 将应用程序变量 trust proxy 设置为下表中所列的某个值。
-尽管不设置应用程序变量 trust proxy 该应用程序也不会运行失败，但是它会误将代理的 IP 地址注册为客户机 IP 地址（">
+    <meta name="description" content="在广告开发中，由于依赖包都相同，为了减少依赖包的重复安装，这里用分支作为项目的主干，以下是相关操作的方法
+
+拉取广告公用模板作为master,新广告可以用他做分支，任何环境的变化都要合并到该主干上
+// git clone 远端源地址
+git clone ssh://git@ued.local.17">
     
     
     
@@ -66,15 +69,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/24/expressjs-behind-proxies/" title="为 Express 设置代理" itemprop="url">为 Express 设置代理</a>
+      <a href="/2017/03/28/git-多项目相同依赖包代码维护方式/" title="git-多项目相同依赖包代码维护方式" itemprop="url">git-多项目相同依赖包代码维护方式</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://emila-github.github.io" title="emila">emila</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-03-24T07:42:05.000Z" itemprop="datePublished">2017-03-24</time>
-    更新日期:<time datetime="2017-03-24T10:26:19.205Z" itemprop="dateModified">2017-03-24</time>
+    <time datetime="2017-03-28T01:34:43.000Z" itemprop="datePublished">2017-03-28</time>
+    更新日期:<time datetime="2017-03-28T01:47:52.643Z" itemprop="dateModified">2017-03-28</time>
     
   </p>
 </header>
@@ -83,26 +86,29 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为-Express-设置代理"><span class="toc-number">1.</span> <span class="toc-text">为 Express 设置代理</span></a></li></ol>
+		
 		</div>
 		
-		<h1 id="为-Express-设置代理"><a href="#为-Express-设置代理" class="headerlink" title="为 Express 设置代理"></a>为 Express 设置代理</h1><p>在代理背后运行 Express 应用程序时，可使用 <a href="//4x/api.html#app.set">app.set()</a>) 将应用程序变量 <code>trust proxy</code> 设置为下表中所列的某个值。</p>
-<div class="doc-box doc-info" markdown="1"><br>尽管不设置应用程序变量 <code>trust proxy</code> 该应用程序也不会运行失败，但是它会误将代理的 IP 地址注册为客户机 IP 地址（除非配置了 <code>trust proxy</code>）。<br></div>
-
-<table class="doctable" border="1" markdown="1"><br>  <thead><tr><th>类型</th><th>值</th></tr></thead><br>  <tbody><br>    <tr><br>      <td>布尔</td><br><td markdown="1"><br>如果为 <code>true</code>，那么客户机的 IP 地址将用作 <code>X-Forwarded-*</code> 头中最左侧的条目。<br>如果为 <code>false</code>，那么该应用程序将被视为直接面对因特网，而客户机的 IP 地址则派生自 <code>req.connection.remoteAddress</code>。这是缺省设置。<br></td><br>    </tr><br>    <tr><br>      <td>IP 地址</td><br><td markdown="1"><br>要信任的 IP 地址、子网或者一组 IP 地址与子网。以下列表显示预先配置的子网名称：<br><em> loopback - <code>127.0.0.1/8</code> 或 <code>::1/128</code>
-</em> linklocal - <code>169.254.0.0/16</code> 或 <code>fe80::/10</code><br>* uniquelocal - <code>10.0.0.0/8</code>、<code>172.16.0.0/12</code>、<code>192.168.0.0/16</code> 或 <code>fc00::/7</code><br><br>您可以按以下某种方法设置 IP 地址：<br><br><pre><br><code class="language-js" translate="no">app.set(‘trust proxy’, ‘loopback’) // specify a single subnet<br>app.set(‘trust proxy’, ‘loopback, 123.123.123.123’) // specify a subnet and an address<br>app.set(‘trust proxy’, ‘loopback, linklocal, uniquelocal’) // specify multiple subnets as CSV<br>app.set(‘trust proxy’, [‘loopback’, ‘linklocal’, ‘uniquelocal’]) // specify multiple subnets as an array</code><br></pre><br><br>如果指定 IP 地址或子网，那么会在地址确定过程中排除这些项，而将最接近应用程序服务器的不受信任的 IP 地址确定为客户机的 IP 地址。<br></td><br>    </tr><br>    <tr><br>      <td>数字</td><br><td markdown="1"><br>信任来自正面代理服务器的第 <code>n</code> 个中继段，以此作为客户机。<br></td><br>    </tr><br>    <tr><br>      <td>函数</td><br><td markdown="1"><br>定制信任实现。仅当您知道自己要做什么时，方可使用该选项。<br><pre><br><code class="language-js" translate="no">app.set(‘trust proxy’, function (ip) {<br>  if (ip === ‘127.0.0.1’ || ip === ‘123.123.123.123’) return true; // trusted IPs<br>  else return false;<br>});</code><br></pre><br></td><br>    </tr><br>  </tbody><br></table>
-
-<p>设置非 <code>false</code> <code>trust proxy</code> 值会导致三个重大变化：</p>
-<ul><br>  <li markdown="1"><a href="//api.html#req.hostname">req.hostname</a> 的值派生自 <code>X-Forwarded-Host</code> 头中设置的值（可以由客户机或代理设置此值）。<br>  </li><br>  <li markdown="1"><code>X-Forwarded-Proto</code> 可以由逆向代理设置，以告知应用程序：它是 <code>https</code> 还是 <code>http</code>，或者甚至是无效名称。该值由 <a href="//api.html#req.protocol">req.protocol</a> 反映。<br>  </li><br>  <li markdown="1"><a href="//api.html#req.ip">req.ip</a> 和 <a href="//api.html#req.ips">req.ips</a> 值由 <code>X-Forwarded-For</code> 的地址列表填充。<br>  </li><br></ul>
-
-<p><code>trust proxy</code> 设置由使用 <a href="https://www.npmjs.com/package/proxy-addr" target="_blank" rel="external">proxy-addr</a> 包实现。有关更多信息，请参阅其文档。</p>
+		<blockquote>
+<p>在广告开发中，由于依赖包都相同，为了减少依赖包的重复安装，这里用分支作为项目的主干，以下是相关操作的方法</p>
+</blockquote>
+<p>拉取广告公用模板作为master,新广告可以用他做分支，任何环境的变化都要合并到该主干上</p>
+<pre><code>// git clone 远端源地址
+git clone ssh://git@ued.local.17173.com:10022/changjianwang/ad2017.git  
+</code></pre><p>添加远端源</p>
+<pre><code>// git remote add 本地源名称 远端源地址
+git remote add AdVrIndexTopBackground ssh://git@ued.local.17173.com:10022/changjianwang/AdVrIndexTopBackground.git
+</code></pre><p>拉取远端源的master到本地源的AdVrIndexTopBackground分支上</p>
+<pre><code>// git fetch origin 远程分支名x:本地分支名x
+git fetch AdVrIndexTopBackground master:AdVrIndexTopBackground
+</code></pre><p>提交某个分支到远端源的主干上<br>    // git push origin 本地分支名x:远程分支名x<br>    git push AdVrIndexTopBackground AdVrIndexTopBackground:master</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Express/">Express</a>
+  <span></span> <a href="/tags/git/">git</a>
   </div>
 
 
@@ -110,7 +116,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="https://emila-github.github.io/2017/03/24/expressjs-behind-proxies/" data-title="为 Express 设置代理 | emila" data-tsina="null" class="share clearfix">
+  <div data-url="https://emila-github.github.io/2017/03/28/git-多项目相同依赖包代码维护方式/" data-title="git-多项目相同依赖包代码维护方式 | emila" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -119,19 +125,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/24/expressjs-error-handling/" title="Express 错误处理">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  Express 错误处理</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/24/Sublime Text 3 快捷键/"  title="Sublime Text 3 快捷键">
+<a href="/2017/03/25/yarn-使用/"  title="yarn-使用">
  <strong>NEXT:</strong><br/> 
- <span>Sublime Text 3 快捷键
+ <span>yarn-使用
 </span>
 </a>
 </div>
@@ -148,7 +146,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为-Express-设置代理"><span class="toc-number">1.</span> <span class="toc-text">为 Express 设置代理</span></a></li></ol>
+  
   </div>
 
 <div id="asidepart">
