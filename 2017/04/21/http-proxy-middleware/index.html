@@ -4,15 +4,17 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Jekyll - Jekyll on Windows | emila</title>
+    <title>http-proxy-middleware | emila</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="emila">
     
-    <meta name="description" content="Jekyll - Jekyll on Windows
-Jekyll 是一个简单的网站静态页面生成工具。由于是用Ruby语音编写的，所以在Windows系统上配置起来还是稍微有点繁琐的。具体过程如下：
+    <meta name="description" content="Installnpm install http-proxy-middleware --save-dev
+Core concept
+context 匹配对应请求的的URL地址, 匹配的请求将被代理到目标主机
+options.target 目标主机地址
 
-安装 Ruby进入 Ruby 的 rubyinstaller.org. 下载 Ruby 2.0.0">
+Examplevar express = req">
     
     
     
@@ -68,15 +70,15 @@ Jekyll 是一个简单的网站静态页面生成工具。由于是用Ruby语音
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/02/Jekyll - Jekyll on Windows/" title="Jekyll - Jekyll on Windows" itemprop="url">Jekyll - Jekyll on Windows</a>
+      <a href="/2017/04/21/http-proxy-middleware/" title="http-proxy-middleware" itemprop="url">http-proxy-middleware</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://emila-github.github.io" title="emila">emila</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
-    更新日期:<time datetime="2016-09-09T06:28:15.984Z" itemprop="dateModified">2016-09-09</time>
+    <time datetime="2017-04-21T05:08:05.000Z" itemprop="datePublished">2017-04-21</time>
+    更新日期:<time datetime="2017-04-21T05:16:40.118Z" itemprop="dateModified">2017-04-21</time>
     
   </p>
 </header>
@@ -85,42 +87,43 @@ Jekyll 是一个简单的网站静态页面生成工具。由于是用Ruby语音
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Jekyll-Jekyll-on-Windows"><span class="toc-number">1.</span> <span class="toc-text">Jekyll - Jekyll on Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Ruby"><span class="toc-number">1.1.</span> <span class="toc-text">安装 Ruby</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Ruby-的-Devkit"><span class="toc-number">1.2.</span> <span class="toc-text">安装 Ruby 的 Devkit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Jekyll"><span class="toc-number">1.3.</span> <span class="toc-text">安装 Jekyll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Python"><span class="toc-number">1.4.</span> <span class="toc-text">安装 Python</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install"><span class="toc-number">1.</span> <span class="toc-text">Install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Core-concept"><span class="toc-number">2.</span> <span class="toc-text">Core concept</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example"><span class="toc-number">3.</span> <span class="toc-text">Example</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资料"><span class="toc-number">4.</span> <span class="toc-text">资料</span></a></li></ol>
 		</div>
 		
-		<h1 id="Jekyll-Jekyll-on-Windows"><a href="#Jekyll-Jekyll-on-Windows" class="headerlink" title="Jekyll - Jekyll on Windows"></a>Jekyll - Jekyll on Windows</h1><blockquote>
-<p>Jekyll 是一个简单的网站静态页面生成工具。由于是用Ruby语音编写的，所以在Windows系统上配置起来还是稍微有点繁琐的。具体过程如下：</p>
-</blockquote>
-<h2 id="安装-Ruby"><a href="#安装-Ruby" class="headerlink" title="安装 Ruby"></a>安装 Ruby</h2><p>进入 Ruby 的 <a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">rubyinstaller.org</a>. 下载 <a href="http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.0.0-p481-x64.exe?direct" target="_blank" rel="external">Ruby 2.0.0-p481 (x64)</a> 并安装（根据系统选择）。</p>
-<p>查看安装是否成功  </p>
-<pre><code>ruby --version
-</code></pre><h2 id="安装-Ruby-的-Devkit"><a href="#安装-Ruby-的-Devkit" class="headerlink" title="安装 Ruby 的 Devkit"></a>安装 Ruby 的 Devkit</h2><p>进入 Ruby的官网 下载  <a href="http://cdn.rubyinstaller.org/archives/devkits/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe" target="_blank" rel="external">DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe</a></p>
-<p>下载后解压到 <code>C:\rubydevkit\</code>,</p>
-<p>进入目录</p>
-<pre><code>cd &quot;C:\rubydevkit\&quot;
-</code></pre><p>初始化配置,生成一个 config.yml 配置文件，该配置文件中包含了前面的Ruby安装目录<br>    ruby dk.rb init</p>
-<p>安装 DevKit<br>    ruby dk.rb install</p>
-<p>配置 devkit的 config.yml<br>在文件中添加 Ruby 的路径  </p>
-<pre><code>---
-- C:/ruby200-x64    
-- 
-</code></pre><h2 id="安装-Jekyll"><a href="#安装-Jekyll" class="headerlink" title="安装 Jekyll"></a>安装 Jekyll</h2><pre><code>gem install jeyll
-</code></pre><blockquote>
-<p>安装后的路径 C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\jekyll-2.3.0\bin</p>
-</blockquote>
-<p>成功后将 jeyll 添加到环境变量的 path 中</p>
-<h2 id="安装-Python"><a href="#安装-Python" class="headerlink" title="安装 Python"></a>安装 Python</h2><p>进入 Python 的 <a href="http://www.python.org/download/" target="_blank" rel="external">python.org</a>. 下载安装包 <a href="https://www.python.org/ftp/python/3.4.1/python-3.4.1.amd64.msi" target="_blank" rel="external">Python 3.4.1 Windows X86-64 MSI Installer</a></p>
-<p>安装后配置环境变量的 path,  <code>C:\Python27</code></p>
-<p>成功后进入要生成静态页面的目录运行</p>
-<pre><code>jekyll serve
-</code></pre><p>浏览器中输入<code>http://localhost:4000/</code> 就可以直接运行你的 Jekyll 页面</p>
+		<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><pre><code>npm install http-proxy-middleware --save-dev
+</code></pre><h2 id="Core-concept"><a href="#Core-concept" class="headerlink" title="Core concept"></a>Core concept</h2><ul>
+<li>context 匹配对应请求的的URL地址, 匹配的请求将被代理到目标主机</li>
+<li>options.target 目标主机地址</li>
+</ul>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><pre><code>var express = require(&apos;sxpress&apos;);
+var proxy = require(&apos;http-proxy-middleware&apos;);
+
+var context = &apos;/object/api&apos;;//context 可以使一个数组[&apos;/object/api&apos;,&apos;/object2/api&apos;,...] 
+var options = {
+    target: &apos;http://www.target.org&apos;,//目标服务器地址
+    changeOrigin: true,             //虚拟主机网站需要
+    headers: {                      //添加token,用于开发
+        &apos;Authorization&apos;: &apos;Bearer &apos; + token,
+        &apos;x-api-version&apos;: 1
+    }
+}
+
+var apiProxy =  proxy(context, options);
+var app = express();
+    app.use(apiProxy);
+    app.listen(3000);
+</code></pre><h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
+<li><a href="https://www.npmjs.com/package/http-proxy-middleware" target="_blank" rel="external">http-proxy-middleware</a></li>
+<li><a href="http://blog.csdn.net/xmloveth/article/details/56847456" target="_blank" rel="external">npm模块之http-proxy-middleware使用教程（译）</a></li>
+<li><a href="http://blog.csdn.net/crasslandWolf/article/details/51276785" target="_blank" rel="external">http-proxy-middleware示例</a></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Jekyll/">Jekyll</a>
+  <span></span> <a href="/tags/npm/">npm</a><a href="/tags/proxy/">proxy</a>
   </div>
 
 
@@ -128,7 +131,7 @@ Jekyll 是一个简单的网站静态页面生成工具。由于是用Ruby语音
 
 <div class="article-share" id="share">
 
-  <div data-url="https://emila-github.github.io/2016/09/02/Jekyll - Jekyll on Windows/" data-title="Jekyll - Jekyll on Windows | emila" data-tsina="null" class="share clearfix">
+  <div data-url="https://emila-github.github.io/2017/04/21/http-proxy-middleware/" data-title="http-proxy-middleware | emila" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -137,19 +140,11 @@ Jekyll 是一个简单的网站静态页面生成工具。由于是用Ruby语音
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/09/02/SVG - 参考手册/" title="SVG - 参考手册">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  SVG - 参考手册</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/09/02/node.js之path模块/"  title="node.js之path模块">
+<a href="/2017/04/01/Sublime Text 3 -snippet 编写总结/"  title="Sublime Text 3 -snippet 编写总结">
  <strong>NEXT:</strong><br/> 
- <span>node.js之path模块
+ <span>Sublime Text 3 -snippet 编写总结
 </span>
 </a>
 </div>
@@ -166,7 +161,7 @@ Jekyll 是一个简单的网站静态页面生成工具。由于是用Ruby语音
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Jekyll-Jekyll-on-Windows"><span class="toc-number">1.</span> <span class="toc-text">Jekyll - Jekyll on Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Ruby"><span class="toc-number">1.1.</span> <span class="toc-text">安装 Ruby</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Ruby-的-Devkit"><span class="toc-number">1.2.</span> <span class="toc-text">安装 Ruby 的 Devkit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Jekyll"><span class="toc-number">1.3.</span> <span class="toc-text">安装 Jekyll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Python"><span class="toc-number">1.4.</span> <span class="toc-text">安装 Python</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install"><span class="toc-number">1.</span> <span class="toc-text">Install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Core-concept"><span class="toc-number">2.</span> <span class="toc-text">Core concept</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example"><span class="toc-number">3.</span> <span class="toc-text">Example</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资料"><span class="toc-number">4.</span> <span class="toc-text">资料</span></a></li></ol>
   </div>
 
 <div id="asidepart">
