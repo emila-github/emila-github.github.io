@@ -83,22 +83,19 @@ var app = express();
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2017/03/24/Sublime Text 3 快捷键/" title="Sublime Text 3 快捷键" itemprop="url">
+    <a href="/2017/03/24/expressjs-error-handling/" title="Express 错误处理" itemprop="url">
   
-    <h1 itemprop="name">Sublime Text 3 快捷键</h1>
+    <h1 itemprop="name">Express 错误处理</h1>
     
      
-           <p itemprop="description" >Sublime Text 3 快捷键精华版
-Ctrl+Shift+P：打开命令面板
-Ctrl+P：搜索项目中的文件
-Ctrl+G：跳转到第几行
-Ctrl+W：关闭当前打开文件
-Ctrl+Shift+W：关闭所有打开文件
-Ctrl+Shift+V：粘贴并格式化
-Ctrl+D：选择单</p>
+           <p itemprop="description" >错误处理错误处理中间件函数的定义方式与其他中间件函数基本相同，差别在于错误处理函数有四个自变量而不是三个：(err, req, res, next)：例如：
+
+
+app.use(function(err, req, res, next) {
+  console.error(err</p>
         
     
-    <time datetime="2017-03-24T06:42:05.000Z" itemprop="datePublished">2017-03-24</time>
+    <time datetime="2017-03-24T07:42:05.000Z" itemprop="datePublished">2017-03-24</time>
   </a>
 </section>
 
@@ -112,6 +109,27 @@ Ctrl+D：选择单</p>
            <p itemprop="description" >一、快速生成HTML5的头部信息的步骤：1.Ctrl + N，新建一个文档；
 2.Ctrl + Shift + P，打开命令模式，再输入 sshtml 进行模糊匹配，将语法切换到html模式；
 3.输入  !，再按下 Tab键或者 Ctrl + E ，就能快速打开HTML5的整体</p>
+        
+    
+    <time datetime="2017-03-24T06:42:05.000Z" itemprop="datePublished">2017-03-24</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/03/24/Sublime Text 3 快捷键/" title="Sublime Text 3 快捷键" itemprop="url">
+  
+    <h1 itemprop="name">Sublime Text 3 快捷键</h1>
+    
+     
+           <p itemprop="description" >Sublime Text 3 快捷键精华版
+Ctrl+Shift+P：打开命令面板
+Ctrl+P：搜索项目中的文件
+Ctrl+G：跳转到第几行
+Ctrl+W：关闭当前打开文件
+Ctrl+Shift+W：关闭所有打开文件
+Ctrl+Shift+V：粘贴并格式化
+Ctrl+D：选择单</p>
         
     
     <time datetime="2017-03-24T06:42:05.000Z" itemprop="datePublished">2017-03-24</time>
@@ -175,20 +193,6 @@ app.METHOD(PATH, HA</p>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2017/03/23/expressjs-hello-world/" title="Express“Hello World”示例" itemprop="url">
-  
-    <h1 itemprop="name">Express“Hello World”示例</h1>
-    
-     
-           <p itemprop="description" >Hello world 示例这基本上是您可以创建的最简单的 Express 应用程序。这是单个文件应用程序 &amp;mdash; 根本不需要动用 Express 生成器。Express 生成器的作用就像是为完整的应用程序建立一个“脚手架”，包含各种用途的 JavaScript 文件、J</p>
-        
-    
-    <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
     <a href="/2017/03/23/expressjs-static-files/" title="在 Express 中提供静态文件" itemprop="url">
   
     <h1 itemprop="name">在 Express 中提供静态文件</h1>
@@ -204,25 +208,12 @@ app.METHOD(PATH, HA</p>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2017/03/23/expressjs-generator/" title="Express 应用程序生成器" itemprop="url">
+    <a href="/2017/03/23/expressjs-hello-world/" title="Express“Hello World”示例" itemprop="url">
   
-    <h1 itemprop="name">Express 应用程序生成器</h1>
+    <h1 itemprop="name">Express“Hello World”示例</h1>
     
      
-           <p itemprop="description" >Express 应用程序生成器可使用应用程序生成器工具 (express) 快速创建应用程序框架。
-使用以下命令安装 express：
-
-
-$ npm install express-generator -g
-
-
-
-使用 -h 选项显示命令选项：
-
-
-$ express -h
-
-</p>
+           <p itemprop="description" >Hello world 示例这基本上是您可以创建的最简单的 Express 应用程序。这是单个文件应用程序 &amp;mdash; 根本不需要动用 Express 生成器。Express 生成器的作用就像是为完整的应用程序建立一个“脚手架”，包含各种用途的 JavaScript 文件、J</p>
         
     
     <time datetime="2017-03-23T07:42:05.000Z" itemprop="datePublished">2017-03-23</time>
@@ -310,7 +301,7 @@ $ cd myapp
 		
 			<li><a href="/tags/node/" title="node">node<sup>2</sup></a></li>
 		
-			<li><a href="/tags/npm/" title="npm">npm<sup>3</sup></a></li>
+			<li><a href="/tags/npm/" title="npm">npm<sup>4</sup></a></li>
 		
 			<li><a href="/tags/package/" title="package">package<sup>1</sup></a></li>
 		
