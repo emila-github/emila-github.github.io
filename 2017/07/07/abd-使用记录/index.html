@@ -4,18 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>webpack配置说明 | emila</title>
+    <title>abd 使用记录 | emila</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="emila">
     
-    <meta name="description" content="webpack配置说明module.exports = {
-  entry: &amp;quot;./src/main.js&amp;quot;,
-  output: {
-    filename: &amp;quot;build/build.js&amp;quot;
-  },
-  module: {
-    loaders: [">
+    <meta name="description" content="adb是什么?：adb的全称为Android Debug Bridge，就是起到调试桥的作用。通过adb我们可以在Eclipse中方面通过DDMS来调试android程序，说白了就是debug工具。adb的工作方式比较特殊，采用监听Socket TCP 5554等端口的方式让IDE和Qemu通讯，默">
     
     
     
@@ -71,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/02/webpack配置说明/" title="webpack配置说明" itemprop="url">webpack配置说明</a>
+      <a href="/2017/07/07/abd-使用记录/" title="abd 使用记录" itemprop="url">abd 使用记录</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://emila-github.github.io" title="emila">emila</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-09-02T12:42:05.000Z" itemprop="datePublished">2016-09-02</time>
-    更新日期:<time datetime="2016-09-09T06:28:16.187Z" itemprop="dateModified">2016-09-09</time>
+    <time datetime="2017-07-07T08:30:18.000Z" itemprop="datePublished">2017-07-07</time>
+    更新日期:<time datetime="2017-07-07T09:05:29.070Z" itemprop="dateModified">2017-07-07</time>
     
   </p>
 </header>
@@ -88,74 +82,56 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack配置说明"><span class="toc-number">1.</span> <span class="toc-text">webpack配置说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack的几个命令"><span class="toc-number">2.</span> <span class="toc-text">webpack的几个命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置运行环境"><span class="toc-number">3.</span> <span class="toc-text">设置运行环境</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#adb操作命令"><span class="toc-number">1.</span> <span class="toc-text">adb操作命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看版本"><span class="toc-number">1.1.</span> <span class="toc-text">查看版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看连接设备"><span class="toc-number">1.2.</span> <span class="toc-text">查看连接设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动-停止-Server"><span class="toc-number">1.3.</span> <span class="toc-text">启动/停止 Server</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#启动-adb-server-："><span class="toc-number">1.3.1.</span> <span class="toc-text">启动 adb server ：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#停止-adb-server-："><span class="toc-number">1.3.2.</span> <span class="toc-text">停止 adb server ：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启"><span class="toc-number">1.4.</span> <span class="toc-text">重启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入模拟器的shell模式"><span class="toc-number">1.5.</span> <span class="toc-text">进入模拟器的shell模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">2.</span> <span class="toc-text">遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#adb-shell-“unknown-host-service”"><span class="toc-number">2.1.</span> <span class="toc-text">adb shell “unknown host service”</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#adb-没法重启"><span class="toc-number">2.1.1.</span> <span class="toc-text">adb 没法重启</span></a></li></ol></li></ol></li></ol>
 		</div>
 		
-		<h2 id="webpack配置说明"><a href="#webpack配置说明" class="headerlink" title="webpack配置说明"></a>webpack配置说明</h2><pre><code>module.exports = {
-  entry: &quot;./src/main.js&quot;,
-  output: {
-    filename: &quot;build/build.js&quot;
-  },
-  module: {
-    loaders: [
-       //.css 文件使用 style-loader 和 css-loader 来处理
-      { test: /\.css$/, loader: &quot;style!css&quot; },
-      //.js 文件使用 jsx-loader 来编译处理
-      { test: /\.js$/,    loader: &quot;jsx-loader&quot; }
-    ]
-  },
-  resolve: {
-    extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.jsx&apos;]
-    fallback: [path.join(__dirname, &apos;../node_modules&apos;)],
-    alias: {
-        &apos;src&apos;: path.resolve(__dirname, &apos;../src&apos;),
-        &apos;assets&apos;: path.resolve(__dirname, &apos;../src/assets&apos;),
-        &apos;components&apos;: path.resolve(__dirname, &apos;../src/components&apos;)
-    }
-  },
-  plugins: []
-};
-</code></pre><p>entry 是页面中的入口文件，比如我这边的入口文件时main.js</p>
-<p>output: 是指页面通过webpack打包后生成的目标文件放在什么地方去，我这边是在根目录下生成build文件夹，该文件夹内有一个build.js文件；</p>
-<p>resolve: 定义了解析模块路径时的配置，常用的就是extensions; 可以用来指定模块的后缀，这样在引入模块时就不需要写后缀，会自动补全。</p>
-<p>plugins: 定义了需要使用的插件，比如commonsPlugin在打包多个入口文件时会提取公用的部分，生成common.js;</p>
-<p>module.loaders：是文件的加载器，比如我们之前react需要在页面中引入jsx的js源码到页面上来，然后使用该语法，但是通过webpack打包后就不需要再引入JSXTransformer.js；看到上面的加载器；比如jsx-loader加载器就是代表JSXTransformer.js的，还有style-loader和css-loader加载器；因此在使用之前我们需要通过命令把它引入到项目上来；因此需要如下命令生成下；</p>
-<p>jsx-loader加载器 npm install jsx-loader –save-dev</p>
-<p>module.loader: 其中test是正则表达式，对符合的文件名使用相应的加载器. </p>
-<p>/.css$/会匹配 xx.css文件，但是并不适用于xx.sass或者xx.css.zip文件.</p>
-<p>url-loader 它会将样式中引用到的图片转为模块来处理; 配置信息的参数“?limit=8192”表示将所有小于8kb的图片都转为base64形式。</p>
-<p>entry 模块的入口文件。依赖项数组中所有的文件会按顺序打包，每个文件进行依赖的递归查找，直到所有模块都被打成包；</p>
-<p>output：模块的输出文件，其中有如下参数：</p>
-<p>filename: 打包后的文件名</p>
-<p>path: 打包文件存放的绝对路径。</p>
-<p>publicPath: 网站运行时的访问路径。</p>
-<p>relolve.extensions: 自动扩展文件的后缀名，比如我们在require模块的时候，可以不用写后缀名的。</p>
-<p>relolve.fallback 当 webpack 在 root（默认当前文件夹，配置时要绝对路径） 和 modulesDirectories（默认当前文件夹，相对路径）配置下面找不到相关modules，去哪个文件夹下找 modules</p>
-<p>relolve.alias: 模块别名定义，方便后续直接引用别名，无须多写长长的地址</p>
-<p>plugins 是插件项;</p>
-<h2 id="webpack的几个命令"><a href="#webpack的几个命令" class="headerlink" title="webpack的几个命令"></a>webpack的几个命令</h2><ol>
-<li>webpack         // 最基本的启动webpack的方法</li>
-<li>webpack -w      // 提供watch方法；实时进行打包更新</li>
-<li>webpack -p      // 对打包后的文件进行压缩</li>
-<li>webpack -d      // 提供source map，方便调式代码</li>
-<li>webpack –colors #输出结果带彩色，比如：会用红色显示耗时较长的步骤</li>
-<li>webpack –profile #输出性能数据，可以看到每一步的耗时</li>
-<li>webpack –display-modules #默认情况下 node_modules 下的模块会被隐藏，加上这个参数可以显示这些被隐藏的模块</li>
-</ol>
-<h2 id="设置运行环境"><a href="#设置运行环境" class="headerlink" title="设置运行环境"></a>设置运行环境</h2><p>在环境变量中定义 NODE_ENV 变量帮助 node 识别环境，例如：</p>
-<pre><code>//Windows
-set NODE_ENV=test 
-//Linux or OSX
-export NODE_ENV=test
-</code></pre><p>参考资料</p>
-<p><a href="http://www.cnblogs.com/tugenhua0707/p/4793265.html" target="_blank" rel="external">- 30分钟手把手教你学webpack实战</a></p>
+		<blockquote>
+<p><strong>adb是什么?</strong>：adb的全称为Android Debug Bridge，就是起到调试桥的作用。通过adb我们可以在Eclipse中方面通过DDMS来调试android程序，说白了就是debug工具。adb的工作方式比较特殊，采用监听Socket TCP 5554等端口的方式让IDE和Qemu通讯，默认情况下adb会daemon相关的网络端口，所以当我们运行Eclipse时adb进程就会自动运行。</p>
+<p><strong>adb有什么用?</strong>：借助adb工具，我们可以管理设备或手机模拟器的状态。还可以进行很多手机操作，如安装软件、系统升级、运行shell命令等等。其实简而言说，adb就是连接Android手机与PC端的桥梁，可以让用户在电脑上对手机进行全面的操作</p>
+</blockquote>
+<h2 id="adb操作命令"><a href="#adb操作命令" class="headerlink" title="adb操作命令"></a>adb操作命令</h2><h3 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h3><p>ADB 的安装这里就不多说了，输入以下命令有如下提示就证明你环境ok，否则自行网上搜索解决下。</p>
+<pre><code>$ adb version
+
+Android Debug Bridge version 1.0.36
+Revision 8f855a3d9b35-android
+</code></pre><h3 id="查看连接设备"><a href="#查看连接设备" class="headerlink" title="查看连接设备"></a>查看连接设备</h3><p>输入以下命令可以查询已连接的设备与模拟器：</p>
+<pre><code>$ adb devices
+
+List of devices attached
+02ae0c1021089daf       device
+</code></pre><h3 id="启动-停止-Server"><a href="#启动-停止-Server" class="headerlink" title="启动/停止 Server"></a>启动/停止 Server</h3><p>一般来说，下面两个命令基本不会用到，因为只要设备连接正确，会自动启动 adb server 的，不过大家也需要知道这俩命令：</p>
+<h4 id="启动-adb-server-："><a href="#启动-adb-server-：" class="headerlink" title="启动 adb server ："></a>启动 adb server ：</h4><pre><code>adb start-server
+</code></pre><h4 id="停止-adb-server-："><a href="#停止-adb-server-：" class="headerlink" title="停止 adb server ："></a>停止 adb server ：</h4><pre><code>adb kill-server
+</code></pre><h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><pre><code>adb reboot
+</code></pre><h3 id="进入模拟器的shell模式"><a href="#进入模拟器的shell模式" class="headerlink" title="进入模拟器的shell模式"></a>进入模拟器的shell模式</h3><pre><code>adb shell
+</code></pre><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="adb-shell-“unknown-host-service”"><a href="#adb-shell-“unknown-host-service”" class="headerlink" title="adb shell “unknown host service”"></a>adb shell “unknown host service”</h3><h4 id="adb-没法重启"><a href="#adb-没法重启" class="headerlink" title="adb 没法重启"></a>adb 没法重启</h4><p>现象：</p>
+<pre><code>D:\&gt;adb shell
+ * failed to start daemon *
+error: unknown host service
+</code></pre><p>分析：</p>
+<blockquote>
+<p>主要是由于5037端口被占用，android_sdk中的adb无法启动</p>
+</blockquote>
+<p>解决：</p>
+<p>在console中输入 <code>netstat -aon|findstr &quot;5037&quot;</code> ，查看占用的pid</p>
+<pre><code>协议    本地地址              外部地址                状态           PID  
+TCP    127.0.0.1:5037       0.0.0.0             LISTENING       2244
+</code></pre><p>输入<code>tasklist /fi &quot;pid eq  2244</code>  查看什么应用占用了adb</p>
+<p><code>taskkill /pid 2244  /f</code>          kill掉该进程</p>
+<p>重启adb</p>
+<p>参考资料</p>
+<ul>
+<li><a href="http://blog.csdn.net/dengzi2009/article/details/9169273" target="_blank" rel="external">adb shell “unknown host service”</a></li>
+<li><a href="http://blog.csdn.net/janronehoo/article/details/6863772/" target="_blank" rel="external">adb操作命令详解及大全</a></li>
+<li><a href="http://blog.csdn.net/androidstar_cn/article/details/52782863" target="_blank" rel="external">adb操作命令详解及大全</a></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/webpack/">webpack</a>
+  <span></span> <a href="/tags/adb/">adb</a><a href="/tags/React-Native/">React Native</a>
   </div>
 
 
@@ -163,7 +139,7 @@ export NODE_ENV=test
 
 <div class="article-share" id="share">
 
-  <div data-url="https://emila-github.github.io/2016/09/02/webpack配置说明/" data-title="webpack配置说明 | emila" data-tsina="null" class="share clearfix">
+  <div data-url="https://emila-github.github.io/2017/07/07/abd-使用记录/" data-title="abd 使用记录 | emila" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -172,19 +148,11 @@ export NODE_ENV=test
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/09/02/webpack 插件： html-webpack-plugin/" title="webpack 插件： html-webpack-plugin">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  webpack 插件： html-webpack-plugin</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/09/02/vim - 命令合集/"  title="Vim - 命令合集">
+<a href="/2017/07/07/React-React-Native-的ES5-ES6写法对照表/"  title="React/React Native 的ES5 ES6写法对照表">
  <strong>NEXT:</strong><br/> 
- <span>Vim - 命令合集
+ <span>React/React Native 的ES5 ES6写法对照表
 </span>
 </a>
 </div>
@@ -201,7 +169,7 @@ export NODE_ENV=test
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack配置说明"><span class="toc-number">1.</span> <span class="toc-text">webpack配置说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack的几个命令"><span class="toc-number">2.</span> <span class="toc-text">webpack的几个命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置运行环境"><span class="toc-number">3.</span> <span class="toc-text">设置运行环境</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#adb操作命令"><span class="toc-number">1.</span> <span class="toc-text">adb操作命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看版本"><span class="toc-number">1.1.</span> <span class="toc-text">查看版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看连接设备"><span class="toc-number">1.2.</span> <span class="toc-text">查看连接设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动-停止-Server"><span class="toc-number">1.3.</span> <span class="toc-text">启动/停止 Server</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#启动-adb-server-："><span class="toc-number">1.3.1.</span> <span class="toc-text">启动 adb server ：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#停止-adb-server-："><span class="toc-number">1.3.2.</span> <span class="toc-text">停止 adb server ：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启"><span class="toc-number">1.4.</span> <span class="toc-text">重启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入模拟器的shell模式"><span class="toc-number">1.5.</span> <span class="toc-text">进入模拟器的shell模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">2.</span> <span class="toc-text">遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#adb-shell-“unknown-host-service”"><span class="toc-number">2.1.</span> <span class="toc-text">adb shell “unknown host service”</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#adb-没法重启"><span class="toc-number">2.1.1.</span> <span class="toc-text">adb 没法重启</span></a></li></ol></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
